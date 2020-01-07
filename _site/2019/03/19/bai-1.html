@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/img/avatar.jpg" />
+    <title>Bài 1: Giới thiệu về RNA-Seq - RNA-Seq Cơ Bản</title>
+    <meta name="author" content="Duy Pham" />
+    <meta name="description" content="Bài 1: Giới thiệu về RNA-Seq" />
+    <meta name="keywords" content="Bài 1: Giới thiệu về RNA-Seq, RNA-Seq Cơ Bản, " />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <meta content="1749788565247320" property="fb:app_id">
+    <meta content="RNA-Seq Cơ Bản" property="og:site_name">
+
+    
+
+    
+      <meta content="Bài 1: Giới thiệu về RNA-Seq" property="og:title">
+      <meta content="article" property="og:type">
+    
+
+    
+      <meta content="Blog về kiến thức RNA-Seq" property="og:description">
+    
+
+    
+      <meta content="http://localhost:4000/2019/03/19/bai-1.html" property="og:url">
+    
+
+    
+      <meta content="2019-03-19T18:34:10+07:00" property="article:published_time">
+      <meta content="http://localhost:4000/about/" property="article:author">
+    
+
+    
+      <meta content="http://localhost:4000/static/img/avatar.jpg" property="og:image">
+    
+
+    
+      
+    
+
+    
+      
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@github.io">
+    <meta name="twitter:creator" content="@github.io">
+
+    
+      <meta name="twitter:title" content="Bài 1: Giới thiệu về RNA-Seq">
+    
+
+    
+      <meta name="twitter:url" content="http://localhost:4000/2019/03/19/bai-1.html">
+    
+
+    
+      <meta name="twitter:description" content="Blog về kiến thức RNA-Seq">
+    
+
+    
+
+    <!-- Font awesome icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/static/css/syntax.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/super-search.css">
+    <link rel="stylesheet" href="/static/css/thickbox.css">
+    <link rel="stylesheet" href="/static/css/projects.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-sm-3">
+        <div class="fixed-condition">
+          <a href="/"><img class="profile-avatar" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+          <h1 class="author-name">Duy Pham</h1>
+          
+            <div class="profile-about">
+              A student who loves Science
+            </div>
+          
+          <div class="social">
+            <ul>
+              
+                <li><a href="https://github.com/duypham2108" target="_blank"><i class="fa fa-github"></i></a></li>
+              
+            </ul>
+          </div>
+          <div class="search" id="js-search">
+            <input type="text" placeholder="Enter to search..." class="search__input form-control" id="js-search__input">
+            <ul class="search__results" id="js-search__results"></ul>
+          </div>
+          <hr />
+          <ul class="sidebar-nav">
+            <strong>Menu</strong>
+            <li><a href="/" style="font-size: 16px">Home</a></li>
+            
+          </ul>
+        </div>
+        <!-- end /.fixed-condition -->
+      </div>
+      <div class="col-sm-8 col-offset-1 main-layout">
+        <header class="post-header">
+  <h1 class="post-title">Bài 1: Giới thiệu về RNA-Seq</h1>
+</header>
+
+<span class="time">19 Mar 2019</span>
+
+  <span class="categories">
+    &raquo; 
+  </span>
+
+
+<div class="content">
+  <div class="post"><h2 id="giới-thiệu-chung">Giới thiệu chung</h2>
+<hr />
+<p>RNA-Seq bao gồm một loạt các phương pháp thực nghiệm và tính toán nhằm giải trình tự và hiểu rõ đặc điểm cụ thể của một đoạn RNA.</p>
+
+<p><em>Các phương pháp thực nghiệm:</em> giải quyết các vấn đề liên quan tới phân lập RNA từ tế bào, mô hoặc cả mẫu vật, chuẩn bị thư viện RNA.</p>
+
+<p><em>Các phương pháp tính toán:</em> giải quyết các bài toán về Bioinformatics (Blog mình sẽ tập trung về phần này là chính).</p>
+
+<h2 id="ưu-điểm">Ưu điểm</h2>
+<hr />
+<p>Cùng để giải quyết bài toán lớn: Gene Expression - Biểu hiện của gene, trước đây, các phương pháp hybridization-based (dựa vào sự lai tạo) thường được sử dụng rất phổ biến nhờ giá thành rẻ và hiệu quả tương đối như Microarray. Nhưng thời điểm hiện tại, RNA-Seq đã trở thành một phương pháp mang tính tiêu chuẩn nhờ hiệu quả tối ưu, thông lượng lớn và giá thành ngày càng phải chăng hơn.</p>
+
+<p>Có thể liệt kê RNA-Seq có những ưu điểm so với phương pháp cũ như sau:</p>
+
+<ul>
+  <li>
+    <p>RNA-Seq nhạy cảm hơn đối với biểu hiện gene tại low hoặc high level và dải động (dynamic range) cấp độ biểu hiện cao hơn. Ngoài ra nó còn ít mắc phải các lỗi kỹ thuật và độ tái lập cao hơn hẳn.</p>
+  </li>
+  <li>
+    <p>RNA-Seq không bị giới hạn bởi kiến thức về genome của sinh vật cụ thể. Hơn nữa, nó còn có thể thực hiện kể cả khi genome của loài đó chưa giải trình tự.</p>
+  </li>
+  <li>
+    <p>RNA-Seq cung cấp chi tiết cực sâu (với độ phân giải tính theo base) về các tính năng phiên mã, ví dụ như các vùng được phiên mã mới (transcribed regions), ghép nối thay thế (alternative splicing) và biểu hiện cụ thể của alen (allele-specific expression).</p>
+  </li>
+  <li>
+    <p>Trong khi Microarray gặp vấn đề bias do lai chéo (cross-hybridization), RNA-Seq được coi là không bias. Tuy nhiên, một số nghiên cứu đã cho thấy GC content bị bias trong dữ liệu RNA-Seq và gây ra các vấn đề trong mapping.</p>
+  </li>
+</ul>
+
+<h2 id="ứng-dụng">Ứng dụng</h2>
+<hr />
+<p>RNA-Seq có thể giải quyết hàng loạt các bài toán trong nghiên cứu hiện giờ như:</p>
+
+<ul>
+  <li>Giải trình sự biểu hiện của gene giữa các mẫu sinh học.</li>
+  <li>Nghiên cứu các sự kiện alternative splicing liên quan tới bệnh</li>
+  <li>Xác định biểu hiện cụ thể của alen, các bệnh liên quan tới biện dị SNP (Single Nucleotide Polymorphisms), hiểu gene lai (gene fusion), các biến dị liên quan tới ung thư,…</li>
+  <li>Gần đây single-cell RNA-Seq gần đã đã nổi lên là một hướng đi giải quyết được các quá trình sinh học tạp, sự không đồng nhất và sự đa dạng của tế bào , đặc biệt là trong lĩnh vực tế bào gốc và khoa học thần kinh.</li>
+</ul>
+
+<h2 id="workflow">Workflow</h2>
+<hr />
+
+<p>Một workflow điển hình khi thực hiện RNA-Seq như hình dưới đây:</p>
+
+<div class="mxgraph" style="max-width:100%;border:1px solid transparent;" data-mxgraph="{&quot;highlight&quot;:&quot;#0000ff&quot;,&quot;nav&quot;:true,&quot;resize&quot;:true,&quot;toolbar&quot;:&quot;zoom layers lightbox&quot;,&quot;edit&quot;:&quot;_blank&quot;,&quot;xml&quot;:&quot;&lt;mxfile modified=\&quot;2019-03-19T11:28:10.954Z\&quot; host=\&quot;www.draw.io\&quot; agent=\&quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\&quot; etag=\&quot;a4Xv8VI9tn6zCL0JiY2n\&quot; version=\&quot;10.5.0\&quot; type=\&quot;google\&quot;&gt;&lt;diagram id=\&quot;EoQwO-cRyMuMccJGVkez\&quot; name=\&quot;Page-1\&quot;&gt;5Vlbc9soFP41esyM7pUfJTvpTme33dl0Zzt9wxKWqBEoGPmyv35BgC62nHE2ceuqL4k5HOBcvu/AsS1vXu7fM1AVf9AMYsu1s73lLSzXdTx3Jv5JyUFJIsdRgpyhTCt1gkf0L9RCW0trlMHNQJFTijmqhsKUEgJTPpABxuhuqLaieHhqBXJ4InhMAT6V/oMyXmgvAruT/wZRXpiTHVvPlMAoa8GmABnd9UTeveXNGaVcfSr3c4hl8Exc1LqHM7OtYQwSfsmCu/Xi6xe3/PT0NQwPfzMWHD4Ed4HaZQtwrR3WxvKDiQDMRED0kDJe0JwSgO87acJoTTIoj7HFqNP5ndJKCB0h/AY5P+jsgppTISp4ifWsOlMedNY3LdrQmqXwGYcMRgDLIX9Gz28zIKALaQk5O4h1DGLA0XZoB9AYylu9Lszig470C6LujEQ9xMLcZEWFw/3wh081NRN3myaAsVBw/GrfTYpPufz/uUDWvWMlsZU8yG3W7cjsv2RGV6Bz7lmxOMImuV6XWNG70qgKz5Q1Sv90hxOkdDiQSd0ViMPHCjTp2onqMMz5CmE8p5iyZq23ilKYpkK+4YyuYW9mGQV+YLfnbSHjcP88Tk7zqheEmou6GDkzPd511HYMX4serc26N0fCu6nxz7+Qf+GP5J9/ln+bCpD/z795UWvGxTO5zdKwSmjYpwT662PcI5s6ekJkc+1bY9tsamwLL2Rb9CPZFt4G2+SFF1qJLU3prjsyZQZ6/q0x0Bl7+vzUFIwupKBjj6fq+3AwuhIH35sHZ+whGQXWPCrnpJADTbLEmTLH/OjmOGafTfbr2os/Vcvgkia5TfeQFqdJzHTeY9F12LgrtfWkOwv35mDgnYVBhrajKBDu8zuAUU4UDFLhPGSnQBjWjvHeE5vCsKgkXC7oNsdKgxA3xg6l17DfmvvWzDGGeaqYmdrW+pNYs4UsdGlB5V/Fh1qm1Kx8QDfjUhNpaWFMGmM1LWd1fxSo7HR+v8j4I55Ka4dkZFBUFbBsFCTVKooIb6AeJFawEBJ5O6vK0yzQvi4wXMmtJClRCnCsxVze8NLLFJH8c3Pdi3buGl8OtOM+g70RBvtXY/D5PvW1cOmX8iFTt82E3UN8tEjFaNisThYEx03rxShwr4aCse9o3wYFooM6tMwnJsmmWNvyFReCUsaaLDfV1WtYuhDHy6GdG0g+SKtABiq1YPLwO+7YRuE39ozwrga/8+37a/N9afNgS2Bsvi8W20dsQPL2pndkIaxEv7airPwV4Hjc3NwAHMe+MX/7O7HX3vRzvx48cZ/q3gPxmmBUBTnx5SZAvt7WhSRM/tLme7I4Pe6+RnHqvw1OxbD70baZ6/307d3/Bw==&lt;/diagram&gt;&lt;/mxfile&gt;&quot;}"></div>
+<script type="text/javascript" src="https://www.draw.io/js/viewer.min.js"></script>
+
+<p>Blog sẽ bắt đầu với một chuỗi bài nói về lý thuyết RNA-Seq đi theo workflow trên. Sau đó sẽ là loạt bài thực hành hướng dẫn sử dụng Tools và ngôn ngữ lập trình R thuộc phần phân tích dữ liệu.</p>
+
+<h2 id="tài-liệu-tham-khảo">Tài liệu tham khảo</h2>
+<hr />
+<p>Về tài liệu tham khảo để viết blog sẽ liên tục cập nhật ở đây:</p>
+
+<p>[1] Korpelainen, Eija, et al. RNA-seq data analysis: a practical approach. Chapman and Hall/CRC, 2014.</p>
+
+<p>[2] https://www.ebi.ac.uk/</p>
+
+<p>[3] https://github.com/UMCUGenetics/RNASeq</p>
+
+<p>[4] https://github.com/griffithlab/rnaseq_tutorial</p>
+
+<p>[5] https://rnaseq.uoregon.edu/index.html</p>
+</div>
+  <div class="share-page">
+  <span style="float: left;">Share this on &rarr;&nbsp;&nbsp;</span>
+
+  <!-- Twitter -->
+  <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+  <!-- Facebook -->
+  <div class="fb-share-button" data-href="http://localhost:4000/2019/03/19/bai-1.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
+</div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1749788565247320";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</div>
+
+
+  
+    
+      
+  
+    
+      
+  
+  
+
+<div class="PageNavigation">
+  
+  
+    <a class="next" href="/2019/03/19/bai-2.html">Bài 2: Thiết kế thí nghiệm RNA-Seq &raquo;</a>
+  
+</div>
+
+<div class="disqus-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    var disqus_shortname = "rnaseqcoban";
+    var disqus_identifier = "http://localhost:4000_Bài 1: Giới thiệu về RNA-Seq";
+    var disqus_title = "Bài 1: Giới thiệu về RNA-Seq";
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    /* ]]> */
+  </script>
+</div>
+
+        <footer>
+          &copy; Duy Pham
+          
+            - <a href="https://github.com/duypham2108">https://github.com/duypham2108</a> - Powered by Jekyll.
+          
+          
+        </footer>
+      </div>
+      <!-- end /.col-sm-8 -->
+    </div>
+    <!-- end /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/super-search.js"></script>
+    <script src="/static/js/thickbox-compressed.js"></script>
+    <script src="/static/js/projects.js"></script>
+  </body>
+</html>
+

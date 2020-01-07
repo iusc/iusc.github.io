@@ -1,0 +1,46 @@
+title: IUSC
+description: Scientific blog
+author: IUSC
+github: https://github.com/iusc
+about: International University Science Community
+disqus_shortname: iusc
+google_analytics: UA-XXXXXXXX-Y
+avatar_url: /static/img/avatar.jpg
+
+enableTags: true
+tagarray: []
+
+collections:
+  project:
+    output: true
+    permalink: /project/:path/
+
+social:
+    - icon: fa-github
+      link: "https://github.com/duypham2108"
+
+share:
+  twitter_username: github.io
+  fb_appid: 1749788565247320
+
+urls:
+ #   - text: My Projects
+ #     url: /projects/
+
+
+url: "https://iusc.github.io"
+baseurl: ""
+paginate: 20
+per_page: 20
+paginate_path: "/page/:num/"
+markdown: kramdown
+gems:
+#  - jekyll-paginate
+#  - jekyll-gist
+
+compress_html:
+  clippings: all
+  comments: ["<!-- ", " -->"]
+  endings: all
+  ignore:
+    envs: ['development']

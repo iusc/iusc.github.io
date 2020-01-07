@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RNA-Seq Cơ Bản</title>
+    <description>Blog về kiến thức RNA-Seq</description>
+    <link>http://localhost:4000/</link>
+    <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 20 Mar 2019 00:53:59 +0700</pubDate>
+    <lastBuildDate>Wed, 20 Mar 2019 00:53:59 +0700</lastBuildDate>
+    <generator>Jekyll v3.7.4</generator>
+    
+      <item>
+        <title>Bài 2: Thiết kế thí nghiệm RNA-Seq</title>
+        <description>&lt;h2 id=&quot;giới-thiệu-chung&quot;&gt;Giới thiệu chung&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;Khi thiết kế một thí nghiệm RNA-Seq, nhà nghiên cứu phải đối mặt với quá nhiều các lựa chọn đối với từng quá trình nhỏ lẻ. Trong một số trường hợp, quyết định có thể dẫn tới giảm chất lượng hoặc phải nhận lại dữ liệu gần như vô dụng. Vì vậy, dành thời gian lựa chọn cẩn thận các phương án cụ thể cho từng bước là điều vô cùng quan trọng.&lt;/p&gt;
+
+&lt;h2 id=&quot;xác-định-mục-tiêu-chính-của-thí-nghiệm&quot;&gt;Xác định mục tiêu chính của thí nghiệm&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;Dựa vào dữ liệu đầu ra của RNA-Seq, chúng ta có thể chia làm 2 loại:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Dữ liệu định tính: gồm có xác định biểu hiện phiên mã (expressed transcripts), xác định vùng tiếp giáp (boundary) exon-intron, vùng khởi đầu phiên mã (transcriptional start sites) hay vùng poly-A.&lt;/li&gt;
+  &lt;li&gt;Dữ liệu định lượng: gồm đo đạc sự khác biệt trong biểu hiện gene, ghép nối thay thế (alternative splicing), TSS thay thế (alternative TSS) và polyadenyl hóa (alternative polyadenylation) thay thế giữa hai hoặc nhiều mẫu khác nhau.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Có một điều quan trọng cần chú ý ở đây là rất khó để có thể thiết kế được một thí nghiệm thỏa mãn cả hai loại đầu ra trên. Bảng dưới đây sẽ nói về các lựa chọn cần ưu tiên đối với mỗi loại mục đích:&lt;/p&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tiêu chí&lt;/th&gt;
+      &lt;th style=&quot;text-align: center&quot;&gt;Định tính&lt;/th&gt;
+      &lt;th style=&quot;text-align: right&quot;&gt;Định lượng&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Lặp mẫu&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Không cần thiết nhưng có ích&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Rất cần thiết&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Độ bao phủ&lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt;Quan trọng cho quá trình lắp ra mới (de Novo assembly) &lt;br /&gt; và xác định đoạn phiên mã đồng dạng (transcriptional isoforms)&lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt;Không quan trọng lắm&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
+      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+</description>
+        <pubDate>Tue, 19 Mar 2019 18:34:10 +0700</pubDate>
+        <link>http://localhost:4000/2019/03/19/bai-2.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/03/19/bai-2.html</guid>
+        
+        
+      </item>
+    
+      <item>
+        <title>Bài 1: Giới thiệu về RNA-Seq</title>
+        <description>&lt;h2 id=&quot;giới-thiệu-chung&quot;&gt;Giới thiệu chung&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;RNA-Seq bao gồm một loạt các phương pháp thực nghiệm và tính toán nhằm giải trình tự và hiểu rõ đặc điểm cụ thể của một đoạn RNA.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Các phương pháp thực nghiệm:&lt;/em&gt; giải quyết các vấn đề liên quan tới phân lập RNA từ tế bào, mô hoặc cả mẫu vật, chuẩn bị thư viện RNA.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Các phương pháp tính toán:&lt;/em&gt; giải quyết các bài toán về Bioinformatics (Blog mình sẽ tập trung về phần này là chính).&lt;/p&gt;
+
+&lt;h2 id=&quot;ưu-điểm&quot;&gt;Ưu điểm&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;Cùng để giải quyết bài toán lớn: Gene Expression - Biểu hiện của gene, trước đây, các phương pháp hybridization-based (dựa vào sự lai tạo) thường được sử dụng rất phổ biến nhờ giá thành rẻ và hiệu quả tương đối như Microarray. Nhưng thời điểm hiện tại, RNA-Seq đã trở thành một phương pháp mang tính tiêu chuẩn nhờ hiệu quả tối ưu, thông lượng lớn và giá thành ngày càng phải chăng hơn.&lt;/p&gt;
+
+&lt;p&gt;Có thể liệt kê RNA-Seq có những ưu điểm so với phương pháp cũ như sau:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;RNA-Seq nhạy cảm hơn đối với biểu hiện gene tại low hoặc high level và dải động (dynamic range) cấp độ biểu hiện cao hơn. Ngoài ra nó còn ít mắc phải các lỗi kỹ thuật và độ tái lập cao hơn hẳn.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;RNA-Seq không bị giới hạn bởi kiến thức về genome của sinh vật cụ thể. Hơn nữa, nó còn có thể thực hiện kể cả khi genome của loài đó chưa giải trình tự.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;RNA-Seq cung cấp chi tiết cực sâu (với độ phân giải tính theo base) về các tính năng phiên mã, ví dụ như các vùng được phiên mã mới (transcribed regions), ghép nối thay thế (alternative splicing) và biểu hiện cụ thể của alen (allele-specific expression).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trong khi Microarray gặp vấn đề bias do lai chéo (cross-hybridization), RNA-Seq được coi là không bias. Tuy nhiên, một số nghiên cứu đã cho thấy GC content bị bias trong dữ liệu RNA-Seq và gây ra các vấn đề trong mapping.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;ứng-dụng&quot;&gt;Ứng dụng&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;RNA-Seq có thể giải quyết hàng loạt các bài toán trong nghiên cứu hiện giờ như:&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Giải trình sự biểu hiện của gene giữa các mẫu sinh học.&lt;/li&gt;
+  &lt;li&gt;Nghiên cứu các sự kiện alternative splicing liên quan tới bệnh&lt;/li&gt;
+  &lt;li&gt;Xác định biểu hiện cụ thể của alen, các bệnh liên quan tới biện dị SNP (Single Nucleotide Polymorphisms), hiểu gene lai (gene fusion), các biến dị liên quan tới ung thư,…&lt;/li&gt;
+  &lt;li&gt;Gần đây single-cell RNA-Seq gần đã đã nổi lên là một hướng đi giải quyết được các quá trình sinh học tạp, sự không đồng nhất và sự đa dạng của tế bào , đặc biệt là trong lĩnh vực tế bào gốc và khoa học thần kinh.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&quot;workflow&quot;&gt;Workflow&lt;/h2&gt;
+&lt;hr /&gt;
+
+&lt;p&gt;Một workflow điển hình khi thực hiện RNA-Seq như hình dưới đây:&lt;/p&gt;
+
+&lt;div class=&quot;mxgraph&quot; style=&quot;max-width:100%;border:1px solid transparent;&quot; data-mxgraph=&quot;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;toolbar&amp;quot;:&amp;quot;zoom layers lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile modified=\&amp;quot;2019-03-19T11:28:10.954Z\&amp;quot; host=\&amp;quot;www.draw.io\&amp;quot; agent=\&amp;quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\&amp;quot; etag=\&amp;quot;a4Xv8VI9tn6zCL0JiY2n\&amp;quot; version=\&amp;quot;10.5.0\&amp;quot; type=\&amp;quot;google\&amp;quot;&amp;gt;&amp;lt;diagram id=\&amp;quot;EoQwO-cRyMuMccJGVkez\&amp;quot; name=\&amp;quot;Page-1\&amp;quot;&amp;gt;5Vlbc9soFP41esyM7pUfJTvpTme33dl0Zzt9wxKWqBEoGPmyv35BgC62nHE2ceuqL4k5HOBcvu/AsS1vXu7fM1AVf9AMYsu1s73lLSzXdTx3Jv5JyUFJIsdRgpyhTCt1gkf0L9RCW0trlMHNQJFTijmqhsKUEgJTPpABxuhuqLaieHhqBXJ4InhMAT6V/oMyXmgvAruT/wZRXpiTHVvPlMAoa8GmABnd9UTeveXNGaVcfSr3c4hl8Exc1LqHM7OtYQwSfsmCu/Xi6xe3/PT0NQwPfzMWHD4Ed4HaZQtwrR3WxvKDiQDMRED0kDJe0JwSgO87acJoTTIoj7HFqNP5ndJKCB0h/AY5P+jsgppTISp4ifWsOlMedNY3LdrQmqXwGYcMRgDLIX9Gz28zIKALaQk5O4h1DGLA0XZoB9AYylu9Lszig470C6LujEQ9xMLcZEWFw/3wh081NRN3myaAsVBw/GrfTYpPufz/uUDWvWMlsZU8yG3W7cjsv2RGV6Bz7lmxOMImuV6XWNG70qgKz5Q1Sv90hxOkdDiQSd0ViMPHCjTp2onqMMz5CmE8p5iyZq23ilKYpkK+4YyuYW9mGQV+YLfnbSHjcP88Tk7zqheEmou6GDkzPd511HYMX4serc26N0fCu6nxz7+Qf+GP5J9/ln+bCpD/z795UWvGxTO5zdKwSmjYpwT662PcI5s6ekJkc+1bY9tsamwLL2Rb9CPZFt4G2+SFF1qJLU3prjsyZQZ6/q0x0Bl7+vzUFIwupKBjj6fq+3AwuhIH35sHZ+whGQXWPCrnpJADTbLEmTLH/OjmOGafTfbr2os/Vcvgkia5TfeQFqdJzHTeY9F12LgrtfWkOwv35mDgnYVBhrajKBDu8zuAUU4UDFLhPGSnQBjWjvHeE5vCsKgkXC7oNsdKgxA3xg6l17DfmvvWzDGGeaqYmdrW+pNYs4UsdGlB5V/Fh1qm1Kx8QDfjUhNpaWFMGmM1LWd1fxSo7HR+v8j4I55Ka4dkZFBUFbBsFCTVKooIb6AeJFawEBJ5O6vK0yzQvi4wXMmtJClRCnCsxVze8NLLFJH8c3Pdi3buGl8OtOM+g70RBvtXY/D5PvW1cOmX8iFTt82E3UN8tEjFaNisThYEx03rxShwr4aCse9o3wYFooM6tMwnJsmmWNvyFReCUsaaLDfV1WtYuhDHy6GdG0g+SKtABiq1YPLwO+7YRuE39ozwrga/8+37a/N9afNgS2Bsvi8W20dsQPL2pndkIaxEv7airPwV4Hjc3NwAHMe+MX/7O7HX3vRzvx48cZ/q3gPxmmBUBTnx5SZAvt7WhSRM/tLme7I4Pe6+RnHqvw1OxbD70baZ6/307d3/Bw==&amp;lt;/diagram&amp;gt;&amp;lt;/mxfile&amp;gt;&amp;quot;}&quot;&gt;&lt;/div&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.draw.io/js/viewer.min.js&quot;&gt;&lt;/script&gt;
+
+&lt;p&gt;Blog sẽ bắt đầu với một chuỗi bài nói về lý thuyết RNA-Seq đi theo workflow trên. Sau đó sẽ là loạt bài thực hành hướng dẫn sử dụng Tools và ngôn ngữ lập trình R thuộc phần phân tích dữ liệu.&lt;/p&gt;
+
+&lt;h2 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
+&lt;hr /&gt;
+&lt;p&gt;Về tài liệu tham khảo để viết blog sẽ liên tục cập nhật ở đây:&lt;/p&gt;
+
+&lt;p&gt;[1] Korpelainen, Eija, et al. RNA-seq data analysis: a practical approach. Chapman and Hall/CRC, 2014.&lt;/p&gt;
+
+&lt;p&gt;[2] https://www.ebi.ac.uk/&lt;/p&gt;
+
+&lt;p&gt;[3] https://github.com/UMCUGenetics/RNASeq&lt;/p&gt;
+
+&lt;p&gt;[4] https://github.com/griffithlab/rnaseq_tutorial&lt;/p&gt;
+
+&lt;p&gt;[5] https://rnaseq.uoregon.edu/index.html&lt;/p&gt;
+</description>
+        <pubDate>Tue, 19 Mar 2019 18:34:10 +0700</pubDate>
+        <link>http://localhost:4000/2019/03/19/bai-1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/2019/03/19/bai-1.html</guid>
+        
+        
+      </item>
+    
+  </channel>
+</rss>

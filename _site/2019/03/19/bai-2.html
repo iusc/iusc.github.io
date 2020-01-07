@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/img/avatar.jpg" />
+    <title>Bài 2: Thiết kế thí nghiệm RNA-Seq - RNA-Seq Cơ Bản</title>
+    <meta name="author" content="Duy Pham" />
+    <meta name="description" content="Bài 2: Thiết kế thí nghiệm RNA-Seq" />
+    <meta name="keywords" content="Bài 2: Thiết kế thí nghiệm RNA-Seq, RNA-Seq Cơ Bản, " />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <meta content="1749788565247320" property="fb:app_id">
+    <meta content="RNA-Seq Cơ Bản" property="og:site_name">
+
+    
+
+    
+      <meta content="Bài 2: Thiết kế thí nghiệm RNA-Seq" property="og:title">
+      <meta content="article" property="og:type">
+    
+
+    
+      <meta content="Blog về kiến thức RNA-Seq" property="og:description">
+    
+
+    
+      <meta content="http://localhost:4000/2019/03/19/bai-2.html" property="og:url">
+    
+
+    
+      <meta content="2019-03-19T18:34:10+07:00" property="article:published_time">
+      <meta content="http://localhost:4000/about/" property="article:author">
+    
+
+    
+      <meta content="http://localhost:4000/static/img/avatar.jpg" property="og:image">
+    
+
+    
+      
+    
+
+    
+      
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@github.io">
+    <meta name="twitter:creator" content="@github.io">
+
+    
+      <meta name="twitter:title" content="Bài 2: Thiết kế thí nghiệm RNA-Seq">
+    
+
+    
+      <meta name="twitter:url" content="http://localhost:4000/2019/03/19/bai-2.html">
+    
+
+    
+      <meta name="twitter:description" content="Blog về kiến thức RNA-Seq">
+    
+
+    
+
+    <!-- Font awesome icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/static/css/syntax.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/super-search.css">
+    <link rel="stylesheet" href="/static/css/thickbox.css">
+    <link rel="stylesheet" href="/static/css/projects.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-sm-3">
+        <div class="fixed-condition">
+          <a href="/"><img class="profile-avatar" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+          <h1 class="author-name">Duy Pham</h1>
+          
+            <div class="profile-about">
+              A student who loves Science
+            </div>
+          
+          <div class="social">
+            <ul>
+              
+                <li><a href="https://github.com/duypham2108" target="_blank"><i class="fa fa-github"></i></a></li>
+              
+            </ul>
+          </div>
+          <div class="search" id="js-search">
+            <input type="text" placeholder="Enter to search..." class="search__input form-control" id="js-search__input">
+            <ul class="search__results" id="js-search__results"></ul>
+          </div>
+          <hr />
+          <ul class="sidebar-nav">
+            <strong>Menu</strong>
+            <li><a href="/" style="font-size: 16px">Home</a></li>
+            
+          </ul>
+        </div>
+        <!-- end /.fixed-condition -->
+      </div>
+      <div class="col-sm-8 col-offset-1 main-layout">
+        <header class="post-header">
+  <h1 class="post-title">Bài 2: Thiết kế thí nghiệm RNA-Seq</h1>
+</header>
+
+<span class="time">19 Mar 2019</span>
+
+  <span class="categories">
+    &raquo; 
+  </span>
+
+
+<div class="content">
+  <div class="post"><h2 id="giới-thiệu-chung">Giới thiệu chung</h2>
+<hr />
+<p>Khi thiết kế một thí nghiệm RNA-Seq, nhà nghiên cứu phải đối mặt với quá nhiều các lựa chọn đối với từng quá trình nhỏ lẻ. Trong một số trường hợp, quyết định có thể dẫn tới giảm chất lượng hoặc phải nhận lại dữ liệu gần như vô dụng. Vì vậy, dành thời gian lựa chọn cẩn thận các phương án cụ thể cho từng bước là điều vô cùng quan trọng.</p>
+
+<h2 id="xác-định-mục-tiêu-chính-của-thí-nghiệm">Xác định mục tiêu chính của thí nghiệm</h2>
+<hr />
+<p>Dựa vào dữ liệu đầu ra của RNA-Seq, chúng ta có thể chia làm 2 loại:</p>
+<ul>
+  <li>Dữ liệu định tính: gồm có xác định biểu hiện phiên mã (expressed transcripts), xác định vùng tiếp giáp (boundary) exon-intron, vùng khởi đầu phiên mã (transcriptional start sites) hay vùng poly-A.</li>
+  <li>Dữ liệu định lượng: gồm đo đạc sự khác biệt trong biểu hiện gene, ghép nối thay thế (alternative splicing), TSS thay thế (alternative TSS) và polyadenyl hóa (alternative polyadenylation) thay thế giữa hai hoặc nhiều mẫu khác nhau.</li>
+</ul>
+
+<p>Có một điều quan trọng cần chú ý ở đây là rất khó để có thể thiết kế được một thí nghiệm thỏa mãn cả hai loại đầu ra trên. Bảng dưới đây sẽ nói về các lựa chọn cần ưu tiên đối với mỗi loại mục đích:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tiêu chí</th>
+      <th style="text-align: center">Định tính</th>
+      <th style="text-align: right">Định lượng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Lặp mẫu</td>
+      <td style="text-align: center">Không cần thiết nhưng có ích</td>
+      <td style="text-align: right">Rất cần thiết</td>
+    </tr>
+    <tr>
+      <td>Độ bao phủ</td>
+      <td style="text-align: center">Quan trọng cho quá trình lắp ra mới (de Novo assembly) <br /> và xác định đoạn phiên mã đồng dạng (transcriptional isoforms)</td>
+      <td style="text-align: right">Không quan trọng lắm</td>
+    </tr>
+    <tr>
+      <td> </td>
+      <td style="text-align: center"> </td>
+      <td style="text-align: right"> </td>
+    </tr>
+  </tbody>
+</table>
+</div>
+  <div class="share-page">
+  <span style="float: left;">Share this on &rarr;&nbsp;&nbsp;</span>
+
+  <!-- Twitter -->
+  <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+  <!-- Facebook -->
+  <div class="fb-share-button" data-href="http://localhost:4000/2019/03/19/bai-2.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
+</div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1749788565247320";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</div>
+
+
+  
+    
+      
+  
+    
+      
+  
+  
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/2019/03/19/bai-1.html">&laquo; Bài 1: Giới thiệu về RNA-Seq</a>
+  
+  
+</div>
+
+<div class="disqus-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    var disqus_shortname = "rnaseqcoban";
+    var disqus_identifier = "http://localhost:4000_Bài 2: Thiết kế thí nghiệm RNA-Seq";
+    var disqus_title = "Bài 2: Thiết kế thí nghiệm RNA-Seq";
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    /* ]]> */
+  </script>
+</div>
+
+        <footer>
+          &copy; Duy Pham
+          
+            - <a href="https://github.com/duypham2108">https://github.com/duypham2108</a> - Powered by Jekyll.
+          
+          
+        </footer>
+      </div>
+      <!-- end /.col-sm-8 -->
+    </div>
+    <!-- end /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/super-search.js"></script>
+    <script src="/static/js/thickbox-compressed.js"></script>
+    <script src="/static/js/projects.js"></script>
+  </body>
+</html>
+
