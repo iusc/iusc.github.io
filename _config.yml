@@ -15,9 +15,6 @@ collections:
     output: true
     permalink: /project/:path/
 
-social:
-    - icon: fa-github
-      link: "https://github.com/duypham2108"
 
 share:
   twitter_username: github.io
