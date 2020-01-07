@@ -3,13 +3,15 @@ description: Scientific blog
 author: IUSC
 github: https://github.com/iusc
 about: International University Science Community
-disqus_shortname: iusc
+
 google_analytics: UA-XXXXXXXX-Y
 avatar_url: /static/img/avatar.jpg
 
 enableTags: true
 tagarray: []
 
+disqus:
+    shortname: iusc
 collections:
   project:
     output: true
