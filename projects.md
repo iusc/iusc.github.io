@@ -4,4 +4,8 @@ title: Projects
 permalink: /projects/
 ---
 
-Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore.
+  <ul class="posts fa-ul">
+    {% for post in paginator.posts %}
+      <li><a href="{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>

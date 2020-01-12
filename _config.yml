@@ -23,14 +23,14 @@ share:
   fb_appid: 1749788565247320
 
 urls:
- #   - text: My Projects
- #     url: /projects/
+#    - text: News
+#      url: /news/
 
 
 url: "https://iusc.github.io"
 baseurl: ""
-paginate: 20
-per_page: 20
+paginate: 10
+per_page: 10
 paginate_path: "/page/:num/"
 markdown: kramdown
 gems:

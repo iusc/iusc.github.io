@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="/static/img/avatar.jpg" />
+    <title>NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P2) - IUSC</title>
+    <meta name="author" content="IUSC" />
+    <meta name="description" content="NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P2)" />
+    <meta name="keywords" content="NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P2), IUSC, blog" />
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="/feed.xml">
+    <meta content="1749788565247320" property="fb:app_id">
+    <meta content="IUSC" property="og:site_name">
+
+    
+
+    
+      <meta content="NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P2)" property="og:title">
+      <meta content="article" property="og:type">
+    
+
+    
+      <meta content="Scientific blog" property="og:description">
+    
+
+    
+      <meta content="http://localhost:4000/blog/2020/01/08/bai-2.html" property="og:url">
+    
+
+    
+      <meta content="2020-01-08T14:15:00+10:00" property="article:published_time">
+      <meta content="http://localhost:4000/about/" property="article:author">
+    
+
+    
+      <meta content="http://localhost:4000/static/img/avatar.jpg" property="og:image">
+    
+
+    
+      
+        <meta content="blog" property="article:section">
+      
+    
+
+    
+      
+    
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:site" content="@github.io">
+    <meta name="twitter:creator" content="@github.io">
+
+    
+      <meta name="twitter:title" content="NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P2)">
+    
+
+    
+      <meta name="twitter:url" content="http://localhost:4000/blog/2020/01/08/bai-2.html">
+    
+
+    
+      <meta name="twitter:description" content="Scientific blog">
+    
+
+    
+
+    <!-- Font awesome icons -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
+    <!-- syntax highlighting CSS -->
+    <link rel="stylesheet" href="/static/css/syntax.css">
+    <!-- Bootstrap core CSS -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,300italic,300,400italic,700&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/css/super-search.css">
+    <link rel="stylesheet" href="/static/css/thickbox.css">
+    <link rel="stylesheet" href="/static/css/projects.css">
+    <link rel="stylesheet" href="/static/css/main.css">
+
+    
+  </head>
+  <body>
+    <div class="container">
+      <div class="col-sm-3">
+        <div class="fixed-condition">
+          <a href="/"><img class="profile-avatar" src="/static/img/avatar.jpg" height="75px" width="75px" /></a>
+          <h1 class="author-name">IUSC</h1>
+          
+            <div class="profile-about">
+              International University Science Community
+            </div>
+          
+          <div class="social">
+            <ul>
+              
+            </ul>
+          </div>
+          <div class="search" id="js-search">
+            <input type="text" placeholder="Enter to search..." class="search__input form-control" id="js-search__input">
+            <ul class="search__results" id="js-search__results"></ul>
+          </div>
+          <hr />
+          <ul class="sidebar-nav">
+            <strong>Menu</strong>
+            <li><a href="/" style="font-size: 16px">Home</a></li>
+            
+          </ul>
+        </div>
+        <!-- end /.fixed-condition -->
+      </div>
+      <div class="col-sm-8 col-offset-1 main-layout">
+        <header class="post-header">
+  <h1 class="post-title">NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P2)</h1>
+</header>
+
+<span class="time">08 Jan 2020</span>
+
+  <span class="categories">
+    &raquo; <a href="/category/blog">blog</a>
+  </span>
+
+
+<div class="content">
+  <div class="post"><h2 id="kỳ-2-xử-lý-dữ-liệu-đầu-vào-cho-mô-hình">KỲ 2: XỬ LÝ DỮ LIỆU ĐẦU VÀO CHO MÔ HÌNH</h2>
+<h3 id="1-khái-niệm-căn-bản">1. Khái niệm căn bản</h3>
+<p>Như các bạn đã biết, để huấn luyện một mô hình, chúng ta cần ít nhất là 3 tập (dataset), bao gồm:</p>
+<ol>
+  <li>Tập Huấn Luyện (Training Set): Dùng để huấn luyện mô hình</li>
+  <li>Tập Giám Sát (Validation Set): Dùng để theo dõi quá trình huấn luyện để lựa chọn điểm dừng.</li>
+  <li>Tập Kiểm Thảo (Test): Dùng để đánh giá kết quả mô hình.</li>
+</ol>
+
+<p>Vậy nếu chức năng của 3 tập rõ ràng như vậy, chúng ta có gì để sai? Trong thực tế, việc phân chia tập Train, Validation, và Test không phải là việc đơn giản vì</p>
+<ol>
+  <li>Test Set phải được để riêng và không được tác động đến quá trình hình luyện.</li>
+  <li>Validation Set phải khái quát hoá được đặc tính của Test Set</li>
+  <li>Training Set không được chứa dữ liệu trùng với hai tập trên</li>
+</ol>
+
+<p>Nếu chúng ta có đủ dữ liệu (data) để chia sẵn thành 3 tập, điều này thật tuyệt vời. Tuy nhiên, ở một số bài toán, dữ liệu của chúng ta không đủ nhiều để có thể chia thành 3 tập rạch ròi nhưng quá trình giám sát là điều không thể loại bỏ để đảm bảo mô hình không bị quá khớp (overfiting). Đó cũng là lý do mà cross-validation ra đời. Để hiểu một cách đơn giản, cross-validation là giải pháp tình huống cho việc bạn không có Validation Set độc lập. Validation Set lúc này sẽ là một phần của Development Set (mình tự quy ước khi nào sử dụng thuật ngữ cross-validation, thì sẽ thay <em>Training Set</em> thành <em>Development Set</em> để tránh nhầm lẫn)</p>
+
+<h3 id="2-các-lỗi-thường-gặp">2. Các lỗi thường gặp</h3>
+<h4 id="21-data-của-các-tập-bị-trùng-nhau">2.1. Data của các tập bị trùng nhau</h4>
+<p>Đây thì đích thị là vấn đề nghiêm trọng rồi, nhưng nó cũng là vấn đề có thể giải quyết một cách đơn giản nhất bằng cách loại bỏ các mẫu trùng.</p>
+
+<h4 id="22-can-thiệp-sai">2.2. Can thiệp sai</h4>
+<p>Đối với dữ liệu có tỉ lệ phân chia các lớp (class) bị lệch (imbalance), hoặc dữ liệu chưa chuẩn hoá (unstandardized), hoặc dữ liệu thiếu (unimputed), khi chúng ta quyết định can thiệp, các bạn phải nhớ Test Set không được quyền can thiệp vào bất cứ giai đoạn nào của quá trình huấn luyện, kể cả việc xử lý dữ liệu đầu vào.</p>
+
+<h5 id="lỗi-sai-thường-gặp">Lỗi sai thường gặp:</h5>
+<ol>
+  <li>Trộn Train và Test vào chung rồi tiến hành chuẩn hoá về scale 0-1. Không biết do vô tình hay cố ý mà hiện nay có rất nhiều bài được đăng trên các tập chí uy tín làm vậy. Dĩ nhiên là họ không ngốc, nhưng việc làm này rõ ràng là có ý đồ năng cao chất lượng, kết quả mô hình.</li>
+</ol>
+
+<p><strong>Lý do</strong>: Khi bạn trộn Train và Test chung với nhau, bạn sẽ có 1 độ biến thiên dữ liệu mang đặc điểm <strong>CHUNG</strong> giữa cả Training Set và Test Set. Nếu như vậy, Test Set đã can thiệp vào quá chính chuẩn hoá Training Set.</p>
+
+<ol>
+  <li>Trộn Train và Val vào chung rồi tiến hành chuẩn hoá: Vấn đề này về bản cũng không khác gì vấn đề khi trộn Train và Test, nhưng nghiêm trọng hơn rất nhiều vì nó quyết định điểm dừng của quá trình huấn luyện mô hình. Nếu bạn có Training Set và Validation Set độc lập thì việc này không phải là vấn đề nhưng nếu bạn tiến hành cross-validation, thì chúc mừng bạn, bạn có thể vô tình quên mất việc tập Validation Set đã được xử lý cùng tập Training Set (Training Set và Validation Set đều được tách ra từ Development Set).</li>
+</ol>
+
+<p>Khi sử dụng K-fold cross-validation (ví dụ: k=5), ta có lần lượt 4 fold được sử dụng làm Training Set  và 1 fold còn lại được sử dụng làm Validation Set. Quá trình này lặp lại 5 lần với lần lượt các fold còn lại, được sử dụng như Validation Set trong suốt quá trình. Tuy nhiên, vì nhiều người thường tiến hành can thiệp để chuẩn hoá, cân bằng, hay điền khuyết dữ liệu thiếu trong Development Set mà quên mất việc Development Set sau đó sẽ được dùng để làm k-fold cross-validation. Điều này dẫn đến overfitting nặng.</p>
+
+<h3 id="3-các-lưu-ý-để-tránh-các-lỗi-nêu-trên">3. Các lưu ý để tránh các lỗi nêu trên:</h3>
+<ol>
+  <li>
+    <p>Nếu bạn có Validation Set riêng, nên lưu ý việc Validation Set cũng phải được đối xử như Test Set. Mọi sự can thiệp vào dữ liệu, chỉ được tác động lên Training Set. Sau đó, bạn sử dụng các hệ số chuẩn hoá của Training Set để lần lượt áp dụng lên cho Validation Set và Test Set (scaling factor/standardized factor).</p>
+  </li>
+  <li>
+    <p>Nếu bạn chỉ có một Development Set duy nhất, bạn nên chia thành k fold trước. Sau đó ứng với từng fold của Validation Set, bạn để riêng ra không can thiệp, và chỉ can thiệp vào 4 fold của Training Set. Sau đó, bạn sử dụng hệ số chuẩn hoá tính toán từ 4 fold của Training Set để áp dụng lên fold ứng với Validation Set. Bạn làm việc này tổng công là k lần, và kết quả của k-fold cross-validation của bạn sẽ kết quả trung bình của một chỉ số nào đó(AUC, PR-AUC, accuracy, …) để lựa chọn làm điểm dừng. Sau khi bạn đã có tham số tối ưu, bạn có thể lấy trọn vẹn Development Set  để huân luyện mô hình. Bạn tiến hành xử lý Development Set và sau đó áp dụng hệ số chuẩn hoá lên Test Set.</p>
+  </li>
+</ol>
+
+<p>Hai vấn đề mình đề cập ở đây là hai vấn đề căn bản mà bạn phải tránh tuyệt đối khi huấn luyện mô hình. Ngoài ra, đối với các mô hình kết hợp (ensemble) và tối ưu tham số cho mô hình này có một chút điều chỉnh, mình xin hẹn dịp sau sẽ nói rõ hơn.</p>
+
+<h6 id="tác-giả-nvth-nvthoanggmailcom">Tác giả: NVTH (nvthoang@gmail.com)</h6>
+</div>
+  <div class="share-page">
+  <span style="float: left;">Share this on &rarr;&nbsp;&nbsp;</span>
+
+  <!-- Twitter -->
+  <a href="https://twitter.com/share" class="twitter-share-button" data-via="github.io">Tweet</a>
+  <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
+  <!-- Facebook -->
+  <div class="fb-share-button" data-href="http://localhost:4000/blog/2020/01/08/bai-2.html" data-layout="button_count" style="position: relative; top: -8px; left: 3px;"></div>
+</div>
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.6&appId=1749788565247320";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+</div>
+
+
+  
+    
+      
+        
+          
+      
+    
+  
+    
+      
+        
+          
+            
+            <div class="panel-body">
+              <h4>Related Posts</h4>
+              <ul>
+            
+                <li class="relatedPost">
+                  <a href="http://localhost:4000/blog/2020/01/08/bai-4.html">NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P4)</a>
+                  
+                    (Categories: <a href="/category/blog">blog</a>)
+                  
+                </li>
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+            
+                <li class="relatedPost">
+                  <a href="http://localhost:4000/blog/2020/01/08/bai-3.html">NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P3)</a>
+                  
+                    (Categories: <a href="/category/blog">blog</a>)
+                  
+                </li>
+          
+          
+        
+      
+    
+  
+    
+      
+        
+          
+      
+    
+  
+    
+      
+        
+          
+            
+                <li class="relatedPost">
+                  <a href="http://localhost:4000/blog/2020/01/08/bai-1.html">NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P1)</a>
+                  
+                    (Categories: <a href="/category/blog">blog</a>)
+                  
+                </li>
+          
+          
+        
+      
+    
+  
+  
+  </ul>
+</div>
+
+
+<div class="PageNavigation">
+  
+    <a class="prev" href="/blog/2020/01/08/bai-1.html">&laquo; NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P1)</a>
+  
+  
+    <a class="next" href="/blog/2020/01/08/bai-3.html">NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P3) &raquo;</a>
+  
+</div>
+
+<div class="disqus-comments">
+  <div id="disqus_thread"></div>
+  <script type="text/javascript">
+    /* <![CDATA[ */
+    var disqus_shortname = "";
+    var disqus_identifier = "http://localhost:4000_NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P2)";
+    var disqus_title = "NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P2)";
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    /* ]]> */
+  </script>
+</div>
+
+        <footer>
+          &copy; IUSC
+          
+            - <a href="https://github.com/iusc">https://github.com/iusc</a> - Powered by Jekyll.
+          
+          
+        </footer>
+      </div>
+      <!-- end /.col-sm-8 -->
+    </div>
+    <!-- end /.container -->
+
+    <!-- Bootstrap core JavaScript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+    <script src="/static/js/bootstrap.min.js"></script>
+    <script src="/static/js/super-search.js"></script>
+    <script src="/static/js/thickbox-compressed.js"></script>
+    <script src="/static/js/projects.js"></script>
+  </body>
+</html>
+

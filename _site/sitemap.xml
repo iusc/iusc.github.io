@@ -1,134 +1,494 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>RNA-Seq Cơ Bản</title>
-    <description>Blog về kiến thức RNA-Seq</description>
+    <title>IUSC</title>
+    <description>Scientific blog</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/sitemap.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 20 Mar 2019 00:53:59 +0700</pubDate>
-    <lastBuildDate>Wed, 20 Mar 2019 00:53:59 +0700</lastBuildDate>
+    <pubDate>Sun, 12 Jan 2020 23:18:07 +1000</pubDate>
+    <lastBuildDate>Sun, 12 Jan 2020 23:18:07 +1000</lastBuildDate>
     <generator>Jekyll v3.7.4</generator>
     
       <item>
-        <title>Bài 2: Thiết kế thí nghiệm RNA-Seq</title>
-        <description>&lt;h2 id=&quot;giới-thiệu-chung&quot;&gt;Giới thiệu chung&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;Khi thiết kế một thí nghiệm RNA-Seq, nhà nghiên cứu phải đối mặt với quá nhiều các lựa chọn đối với từng quá trình nhỏ lẻ. Trong một số trường hợp, quyết định có thể dẫn tới giảm chất lượng hoặc phải nhận lại dữ liệu gần như vô dụng. Vì vậy, dành thời gian lựa chọn cẩn thận các phương án cụ thể cho từng bước là điều vô cùng quan trọng.&lt;/p&gt;
+        <title>Scientific News 12-1-2020 - Week 1</title>
+        <description>&lt;h3 id=&quot;scientific-papers&quot;&gt;Scientific papers&lt;/h3&gt;
 
-&lt;h2 id=&quot;xác-định-mục-tiêu-chính-của-thí-nghiệm&quot;&gt;Xác định mục tiêu chính của thí nghiệm&lt;/h2&gt;
 &lt;hr /&gt;
-&lt;p&gt;Dựa vào dữ liệu đầu ra của RNA-Seq, chúng ta có thể chia làm 2 loại:&lt;/p&gt;
+
+&lt;h4 id=&quot;deep-learning&quot;&gt;Deep learning&lt;/h4&gt;
+
 &lt;ul&gt;
-  &lt;li&gt;Dữ liệu định tính: gồm có xác định biểu hiện phiên mã (expressed transcripts), xác định vùng tiếp giáp (boundary) exon-intron, vùng khởi đầu phiên mã (transcriptional start sites) hay vùng poly-A.&lt;/li&gt;
-  &lt;li&gt;Dữ liệu định lượng: gồm đo đạc sự khác biệt trong biểu hiện gene, ghép nối thay thế (alternative splicing), TSS thay thế (alternative TSS) và polyadenyl hóa (alternative polyadenylation) thay thế giữa hai hoặc nhiều mẫu khác nhau.&lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;A Simple Baseline Algorithm for Graph Classification  (Relational Representation Learning, NIPS 2018)&lt;/strong&gt; &lt;br /&gt; &lt;em&gt;Description: Viết tóm tắt nội dung hoặc quan điểm cá nhân khi đọc bài&lt;/em&gt; &lt;br /&gt; &lt;a href=&quot;https://arxiv.org/pdf/1810.09155.pdf&quot;&gt;Link Paper&lt;/a&gt;  &lt;br /&gt; &lt;a href=&quot;https://github.com/edouardpineau/A-simple-baseline-algorithm-for-graph-classification&quot;&gt;Code&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;strong&gt;The Case for Bayesian Deep Learning (January 11, 2020)&lt;/strong&gt; &lt;br /&gt; &lt;em&gt;Description: Viết tóm tắt nội dung hoặc quan điểm cá nhân khi đọc bài&lt;/em&gt; &lt;br /&gt; &lt;a href=&quot;https://cims.nyu.edu/~andrewgw/caseforbdl/&quot;&gt;Link Paper&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;Có một điều quan trọng cần chú ý ở đây là rất khó để có thể thiết kế được một thí nghiệm thỏa mãn cả hai loại đầu ra trên. Bảng dưới đây sẽ nói về các lựa chọn cần ưu tiên đối với mỗi loại mục đích:&lt;/p&gt;
+&lt;h4 id=&quot;rna-seq&quot;&gt;RNA-seq&lt;/h4&gt;
 
-&lt;table&gt;
-  &lt;thead&gt;
-    &lt;tr&gt;
-      &lt;th&gt;Tiêu chí&lt;/th&gt;
-      &lt;th style=&quot;text-align: center&quot;&gt;Định tính&lt;/th&gt;
-      &lt;th style=&quot;text-align: right&quot;&gt;Định lượng&lt;/th&gt;
-    &lt;/tr&gt;
-  &lt;/thead&gt;
-  &lt;tbody&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Lặp mẫu&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Không cần thiết nhưng có ích&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Rất cần thiết&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt;Độ bao phủ&lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt;Quan trọng cho quá trình lắp ra mới (de Novo assembly) &lt;br /&gt; và xác định đoạn phiên mã đồng dạng (transcriptional isoforms)&lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt;Không quan trọng lắm&lt;/td&gt;
-    &lt;/tr&gt;
-    &lt;tr&gt;
-      &lt;td&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: center&quot;&gt; &lt;/td&gt;
-      &lt;td style=&quot;text-align: right&quot;&gt; &lt;/td&gt;
-    &lt;/tr&gt;
-  &lt;/tbody&gt;
-&lt;/table&gt;
+&lt;h4 id=&quot;nanobiotech&quot;&gt;Nanobiotech&lt;/h4&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;scientific-news&quot;&gt;Scientific news&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;deep-learning-1&quot;&gt;Deep learning&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Training a single AI model can emit as much carbon as five cars in their lifetimes&lt;/strong&gt; &lt;br /&gt; &lt;em&gt;Ảnh hưởng của AI đến môi trường …&lt;/em&gt; &lt;br /&gt; &lt;a href=&quot;https://www.technologyreview.com/s/613630/training-a-single-ai-model-can-emit-as-much-carbon-as-five-cars-in-their-lifetimes/&quot;&gt;Link Article&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h3 id=&quot;tutorialblog&quot;&gt;Tutorial/Blog&lt;/h3&gt;
+
+&lt;hr /&gt;
+
+&lt;h4 id=&quot;data-analysis&quot;&gt;Data analysis&lt;/h4&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Top features of Pandas 1.0&lt;/strong&gt; &lt;br /&gt; &lt;em&gt;Giới thiệu về các feature mới của pandas 1.0 …&lt;/em&gt; &lt;br /&gt; &lt;a href=&quot;https://towardsdatascience.com/top-features-of-pandas-1-0-26abff08d1b6&quot;&gt;Link Blog&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&quot;rna-seq-1&quot;&gt;RNA-seq&lt;/h4&gt;
+
 </description>
-        <pubDate>Tue, 19 Mar 2019 18:34:10 +0700</pubDate>
-        <link>http://localhost:4000/2019/03/19/bai-2.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/03/19/bai-2.html</guid>
+        <pubDate>Sun, 12 Jan 2020 22:30:00 +1000</pubDate>
+        <link>http://localhost:4000/news/2020/01/12/news-1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/news/2020/01/12/news-1.html</guid>
         
+        
+        <category>news</category>
         
       </item>
     
       <item>
-        <title>Bài 1: Giới thiệu về RNA-Seq</title>
-        <description>&lt;h2 id=&quot;giới-thiệu-chung&quot;&gt;Giới thiệu chung&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;RNA-Seq bao gồm một loạt các phương pháp thực nghiệm và tính toán nhằm giải trình tự và hiểu rõ đặc điểm cụ thể của một đoạn RNA.&lt;/p&gt;
+        <title>NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P4)</title>
+        <description>&lt;h2 id=&quot;kỳ-4-hướng-dẫn-mã-hoá-dữ-liệu-hoá-học&quot;&gt;KỲ 4: HƯỚNG DẪN MÃ HOÁ DỮ LIỆU HOÁ HỌC&lt;/h2&gt;
+&lt;h3 id=&quot;lưu-ý&quot;&gt;Lưu ý&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Nếu bạn chưa biết những khái niệm căn bản liên quan đến hoá học, vui lòng xem Phần 1 trước.&lt;/li&gt;
+  &lt;li&gt;Nếu bạn đã hiểu những khái niệm căn bản, vui lòng chuyển qua Phần 2.&lt;/li&gt;
+  &lt;li&gt;Bạn nên đọc các tài liệu khoa học ở Phần 3 để có cái nhìn tổng quan hơn.&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;&lt;em&gt;Các phương pháp thực nghiệm:&lt;/em&gt; giải quyết các vấn đề liên quan tới phân lập RNA từ tế bào, mô hoặc cả mẫu vật, chuẩn bị thư viện RNA.&lt;/p&gt;
+&lt;h3 id=&quot;1-khái-niệm-căn-bản&quot;&gt;1. Khái Niệm Căn Bản&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Tất cả các hợp chất đều có thể được biểu diễn dưới dạng một chuỗi ký tự gọi là &lt;a href=&quot;https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html&quot;&gt;SMILE&lt;/a&gt;. Bên cạnh &lt;a href=&quot;https://www.daylight.com/dayhtml/doc/theory/theory.smiles.html&quot;&gt;SMILE&lt;/a&gt;, một hợp chất còn có thể được biểu diễn bằng &lt;a href=&quot;https://iupac.org/who-we-are/divisions/division-details/inchi/&quot;&gt;InChiKEy&lt;/a&gt; hay &lt;a href=&quot;https://iupac.org/who-we-are/divisions/division-details/inchi/&quot;&gt;InChI&lt;/a&gt;. Các dạng biểu diễn này được gọi là &lt;a href=&quot;https://en.wikipedia.org/wiki/International_Chemical_Identifier&quot;&gt;International Chemical Identifiers&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
 
-&lt;p&gt;&lt;em&gt;Các phương pháp tính toán:&lt;/em&gt; giải quyết các bài toán về Bioinformatics (Blog mình sẽ tập trung về phần này là chính).&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ví dụ&lt;/strong&gt;: Benzene (C6H6) có thể được biểu diễn dưới dạng SMILE là C1=CC=CC=C1&lt;/p&gt;
 
-&lt;h2 id=&quot;ưu-điểm&quot;&gt;Ưu điểm&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;Cùng để giải quyết bài toán lớn: Gene Expression - Biểu hiện của gene, trước đây, các phương pháp hybridization-based (dựa vào sự lai tạo) thường được sử dụng rất phổ biến nhờ giá thành rẻ và hiệu quả tương đối như Microarray. Nhưng thời điểm hiện tại, RNA-Seq đã trở thành một phương pháp mang tính tiêu chuẩn nhờ hiệu quả tối ưu, thông lượng lớn và giá thành ngày càng phải chăng hơn.&lt;/p&gt;
-
-&lt;p&gt;Có thể liệt kê RNA-Seq có những ưu điểm so với phương pháp cũ như sau:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Mỗi hợp chất  được tìm ra và đăng ký sẽ được cấp CAS Registry Number (CAS_ID). Đối với một hợp chất, CAS_ID là duy nhất.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Trong lĩnh vực Thiết kế Dược phẩm bằng máy tính (Computer-aided drug design - CADD), để biểu diễn hợp chất, SMILEs được sử dụng phổ biến nhất. Để trở thành dữ liệu đầu vào cho mô hình các chuỗi này phải được chuyển đổi về dạng SỐ (Numeric). Một hợp chất ở định dạng SMILE có thể được chuyển đổi về:&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;ul&gt;
   &lt;li&gt;
-    &lt;p&gt;RNA-Seq nhạy cảm hơn đối với biểu hiện gene tại low hoặc high level và dải động (dynamic range) cấp độ biểu hiện cao hơn. Ngoài ra nó còn ít mắc phải các lỗi kỹ thuật và độ tái lập cao hơn hẳn.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://www.daylight.com/dayhtml/doc/theory/theory.finger.html&quot;&gt;Molecular Fingerprint&lt;/a&gt;&lt;/strong&gt; hay  &lt;strong&gt;&lt;a href=&quot;https://www.daylight.com/dayhtml/doc/theory/theory.finger.html&quot;&gt;Chemical Fingerprint (FP)&lt;/a&gt;&lt;/strong&gt;: &lt;strong&gt;&lt;a href=&quot;https://www.daylight.com/dayhtml/doc/theory/theory.finger.html&quot;&gt;Vân Tay Phân Tử&lt;/a&gt;&lt;/strong&gt; là mọt vector nhị nguyên (binary) cho biết sự xuất hiện hay vắng mặt của một “cấu trúc con (substructure) của chất. Độ dài của FP tuỳ thuộc vào từng loại FP khác nhau. Hiện nay, có khoảng 12 loại FP được sử dụng phổ biến nhất.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;RNA-Seq không bị giới hạn bởi kiến thức về genome của sinh vật cụ thể. Hơn nữa, nó còn có thể thực hiện kể cả khi genome của loài đó chưa giải trình tự.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;http://www.moleculardescriptors.eu/tutorials/what_is.htm&quot;&gt;Molecular Descriptor (MD)&lt;/a&gt;&lt;/strong&gt;: &lt;strong&gt;&lt;a href=&quot;http://www.moleculardescriptors.eu/tutorials/what_is.htm&quot;&gt;MD&lt;/a&gt;&lt;/strong&gt; của một hợp chất có thể được tính toán bằng các phần mềm, thư viện. Một bộ MD của một hợp chất sẽ chứa khoảng 1600 đến 1800 các đặc tính vật lý, hoá học của một hợp chất đó. There are several types of MD set with specific purposes of use.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;RNA-Seq cung cấp chi tiết cực sâu (với độ phân giải tính theo base) về các tính năng phiên mã, ví dụ như các vùng được phiên mã mới (transcribed regions), ghép nối thay thế (alternative splicing) và biểu hiện cụ thể của alen (allele-specific expression).&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;&lt;a href=&quot;https://tkipf.github.io/graph-convolutional-networks/&quot;&gt;Molecular Graph&lt;/a&gt;&lt;/strong&gt;: Dựa vào lý thuyết đồ thị, một hợp chất có thể được biểu diễn dưới dạng một đồ thị với đỉnh là các nguyên tử và liên kết là các cạnh.&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;
-    &lt;p&gt;Trong khi Microarray gặp vấn đề bias do lai chéo (cross-hybridization), RNA-Seq được coi là không bias. Tuy nhiên, một số nghiên cứu đã cho thấy GC content bị bias trong dữ liệu RNA-Seq và gây ra các vấn đề trong mapping.&lt;/p&gt;
+    &lt;p&gt;&lt;strong&gt;Ma Trận One-hot&lt;/strong&gt;: Một hợp chất dưới dạng SMILE có thể được chuyển đối thành một ma trận n×m với n = số lượng ký tự xuất hiện trong chuỗi SMILE và m = độ dài của chuỗi SMILE (tính bằng số lượng các ký tự trong một chuỗi).
+ &lt;/p&gt;
   &lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;ứng-dụng&quot;&gt;Ứng dụng&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;RNA-Seq có thể giải quyết hàng loạt các bài toán trong nghiên cứu hiện giờ như:&lt;/p&gt;
+&lt;h3 id=&quot;2-những-câu-hỏi-thường-gặp&quot;&gt;2. Những Câu Hỏi Thường Gặp&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;HỎI: Làm thế nào để chuyển đổi SMILE thành FP?&lt;/strong&gt;&lt;/p&gt;
 
+&lt;p&gt;&lt;strong&gt;ĐÁP&lt;/strong&gt;:&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;Giải trình sự biểu hiện của gene giữa các mẫu sinh học.&lt;/li&gt;
-  &lt;li&gt;Nghiên cứu các sự kiện alternative splicing liên quan tới bệnh&lt;/li&gt;
-  &lt;li&gt;Xác định biểu hiện cụ thể của alen, các bệnh liên quan tới biện dị SNP (Single Nucleotide Polymorphisms), hiểu gene lai (gene fusion), các biến dị liên quan tới ung thư,…&lt;/li&gt;
-  &lt;li&gt;Gần đây single-cell RNA-Seq gần đã đã nổi lên là một hướng đi giải quyết được các quá trình sinh học tạp, sự không đồng nhất và sự đa dạng của tế bào , đặc biệt là trong lĩnh vực tế bào gốc và khoa học thần kinh.&lt;/li&gt;
+  &lt;li&gt;Bạn có thể sử dụng &lt;a href=&quot;http://www.yapcwsoft.com/dd/padeldescriptor/&quot;&gt;PaDEL Descriptor&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;h2 id=&quot;workflow&quot;&gt;Workflow&lt;/h2&gt;
-&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;HỎI: Làm thế nào để chuyển đổi SMILEs thành MD?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Một workflow điển hình khi thực hiện RNA-Seq như hình dưới đây:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ĐÁP&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bạn có thể sử dụng &lt;a href=&quot;http://www.yapcwsoft.com/dd/padeldescriptor/&quot;&gt;PaDEL Descriptor&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bạn có thể sử dụng một số các phần mềm khác được nêu ở trang &lt;a href=&quot;http://www.moleculardescriptors.eu/softwares/softwares.htm&quot;&gt;này&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bạn có thể sử dụng &lt;a href=&quot;(http://www.scbdd.com/chemdes/)&quot;&gt;ChemDes&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bạn có thể sử dụng &lt;a href=&quot;http://mordred-descriptor.github.io/documentation/v0.1.0/introduction.html&quot;&gt;Mordred&lt;/a&gt; – một thư viện Python&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;div class=&quot;mxgraph&quot; style=&quot;max-width:100%;border:1px solid transparent;&quot; data-mxgraph=&quot;{&amp;quot;highlight&amp;quot;:&amp;quot;#0000ff&amp;quot;,&amp;quot;nav&amp;quot;:true,&amp;quot;resize&amp;quot;:true,&amp;quot;toolbar&amp;quot;:&amp;quot;zoom layers lightbox&amp;quot;,&amp;quot;edit&amp;quot;:&amp;quot;_blank&amp;quot;,&amp;quot;xml&amp;quot;:&amp;quot;&amp;lt;mxfile modified=\&amp;quot;2019-03-19T11:28:10.954Z\&amp;quot; host=\&amp;quot;www.draw.io\&amp;quot; agent=\&amp;quot;Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36\&amp;quot; etag=\&amp;quot;a4Xv8VI9tn6zCL0JiY2n\&amp;quot; version=\&amp;quot;10.5.0\&amp;quot; type=\&amp;quot;google\&amp;quot;&amp;gt;&amp;lt;diagram id=\&amp;quot;EoQwO-cRyMuMccJGVkez\&amp;quot; name=\&amp;quot;Page-1\&amp;quot;&amp;gt;5Vlbc9soFP41esyM7pUfJTvpTme33dl0Zzt9wxKWqBEoGPmyv35BgC62nHE2ceuqL4k5HOBcvu/AsS1vXu7fM1AVf9AMYsu1s73lLSzXdTx3Jv5JyUFJIsdRgpyhTCt1gkf0L9RCW0trlMHNQJFTijmqhsKUEgJTPpABxuhuqLaieHhqBXJ4InhMAT6V/oMyXmgvAruT/wZRXpiTHVvPlMAoa8GmABnd9UTeveXNGaVcfSr3c4hl8Exc1LqHM7OtYQwSfsmCu/Xi6xe3/PT0NQwPfzMWHD4Ed4HaZQtwrR3WxvKDiQDMRED0kDJe0JwSgO87acJoTTIoj7HFqNP5ndJKCB0h/AY5P+jsgppTISp4ifWsOlMedNY3LdrQmqXwGYcMRgDLIX9Gz28zIKALaQk5O4h1DGLA0XZoB9AYylu9Lszig470C6LujEQ9xMLcZEWFw/3wh081NRN3myaAsVBw/GrfTYpPufz/uUDWvWMlsZU8yG3W7cjsv2RGV6Bz7lmxOMImuV6XWNG70qgKz5Q1Sv90hxOkdDiQSd0ViMPHCjTp2onqMMz5CmE8p5iyZq23ilKYpkK+4YyuYW9mGQV+YLfnbSHjcP88Tk7zqheEmou6GDkzPd511HYMX4serc26N0fCu6nxz7+Qf+GP5J9/ln+bCpD/z795UWvGxTO5zdKwSmjYpwT662PcI5s6ekJkc+1bY9tsamwLL2Rb9CPZFt4G2+SFF1qJLU3prjsyZQZ6/q0x0Bl7+vzUFIwupKBjj6fq+3AwuhIH35sHZ+whGQXWPCrnpJADTbLEmTLH/OjmOGafTfbr2os/Vcvgkia5TfeQFqdJzHTeY9F12LgrtfWkOwv35mDgnYVBhrajKBDu8zuAUU4UDFLhPGSnQBjWjvHeE5vCsKgkXC7oNsdKgxA3xg6l17DfmvvWzDGGeaqYmdrW+pNYs4UsdGlB5V/Fh1qm1Kx8QDfjUhNpaWFMGmM1LWd1fxSo7HR+v8j4I55Ka4dkZFBUFbBsFCTVKooIb6AeJFawEBJ5O6vK0yzQvi4wXMmtJClRCnCsxVze8NLLFJH8c3Pdi3buGl8OtOM+g70RBvtXY/D5PvW1cOmX8iFTt82E3UN8tEjFaNisThYEx03rxShwr4aCse9o3wYFooM6tMwnJsmmWNvyFReCUsaaLDfV1WtYuhDHy6GdG0g+SKtABiq1YPLwO+7YRuE39ozwrga/8+37a/N9afNgS2Bsvi8W20dsQPL2pndkIaxEv7airPwV4Hjc3NwAHMe+MX/7O7HX3vRzvx48cZ/q3gPxmmBUBTnx5SZAvt7WhSRM/tLme7I4Pe6+RnHqvw1OxbD70baZ6/307d3/Bw==&amp;lt;/diagram&amp;gt;&amp;lt;/mxfile&amp;gt;&amp;quot;}&quot;&gt;&lt;/div&gt;
-&lt;script type=&quot;text/javascript&quot; src=&quot;https://www.draw.io/js/viewer.min.js&quot;&gt;&lt;/script&gt;
+&lt;p&gt;&lt;strong&gt;HỎI: Làm thế nào để chuyển đổi SMILEs thành Molecular Graph?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;Blog sẽ bắt đầu với một chuỗi bài nói về lý thuyết RNA-Seq đi theo workflow trên. Sau đó sẽ là loạt bài thực hành hướng dẫn sử dụng Tools và ngôn ngữ lập trình R thuộc phần phân tích dữ liệu.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ĐÁP&lt;/strong&gt;:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bạn có thể xem cách làm ở trang chủ &lt;a href=&quot;https://deepchem.io/docs/notebooks/graph_convolutional_networks_for_tox21.html&quot;&gt;DeepChem&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Bạn có thể chuyên đổi SMILE thành các dạng ma trận trích xuất (Grapb-based matrix) bằng thư viện &lt;a href=&quot;https://github.com/chemplexity/molecules&quot;&gt;Chemplexity&lt;/a&gt;.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;h2 id=&quot;tài-liệu-tham-khảo&quot;&gt;Tài liệu tham khảo&lt;/h2&gt;
-&lt;hr /&gt;
-&lt;p&gt;Về tài liệu tham khảo để viết blog sẽ liên tục cập nhật ở đây:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HỎI: Làm thế nào để chuyển đổi SMILEs thành Ma trận One-Hot?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;[1] Korpelainen, Eija, et al. RNA-seq data analysis: a practical approach. Chapman and Hall/CRC, 2014.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ĐÁP:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bạn có thế viết một đoạn code chuyển đổi. 
+SMILEs được mã hoá bởi các ký tự [“7”, “6”, “o”, “]”, “3”, “s”, “(“, “-“, “S”, “/”, “B”, “4”, “[”, “)”, “#”, “I”, “l”, “O”, “H”, “c”, “1”, “@”, “=”, “n”, “P”, “8”, “C”, “2”, “F”, “5”, “r”, “N”, “+”, “\”, “ “]. (Số lượng, loại ký tự này phụ thuộc vào dữ liệu đầu vào của bạn)&lt;/li&gt;
+&lt;/ul&gt;
 
-&lt;p&gt;[2] https://www.ebi.ac.uk/&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Ví dụ&lt;/strong&gt;:&lt;/p&gt;
 
-&lt;p&gt;[3] https://github.com/UMCUGenetics/RNASeq&lt;/p&gt;
+&lt;p&gt;Cho một SMILE: C1=CC=CC=C1 (Benzene)
+	- “C” có vị trí 26 nên tương ứng với vector one-hot [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0]. 
+	- Làm tương tự với các ký tự tiếp theo.
+	- Độ dài của SMILEs sẽ quyết định số Hàng còn số lượng ký tự sử dụng sẽ quyết định số Cột ma trận.
+	- Với một  SMILE, bạn có thể tạo ra một ma trận Độ_dài_SMILE×Số_lượng_ký tự.
+	- Vì độ dài của tất cả các SMILE trong một tập dữ liệu khác nhau, các SMILEs có độ dài bé hơn Độ_dài_SMILE (được chọn) sẽ được padding bằng ký tự “ “ (Trong ví dụ này là ở vị trí thứ 34). 
+	- SMILE có độ dài lớn hơn Độ_dài_SMILE (được chọn) hoặc xuất hiện ký tự không có trong từ điểnm sẽ bị loại bỏ.&lt;/p&gt;
 
-&lt;p&gt;[4] https://github.com/griffithlab/rnaseq_tutorial&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;HỎI: Làm thế nào để chuyển đổi qua lại giữa các định dạng hợp chất?&lt;/strong&gt;&lt;/p&gt;
 
-&lt;p&gt;[5] https://rnaseq.uoregon.edu/index.html&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;ĐÁP:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bạn có thể sử dụng &lt;a href=&quot;http://openbabel.org/wiki/Main_Page&quot;&gt;Open Babel&lt;/a&gt;. Phần mềm này được sử dụng rất phổ biến.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;HỎI: Làm thế nào để tìm hiểu sâu hơn về ứng dụng Học Máy, Học Sâu trong lĩnh vực Nghiên cứu phất triển Dược phẩm?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ĐÁP:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Vui lòng truy cập &lt;a href=&quot;https://deepchem.io&quot;&gt;Deepchem&lt;/a&gt;. Website chứa mọi thứ mà bạn cần từ, dữ liệu, cho đến code.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;HỎI: Làm thế nào để tìm các tập dữ liệu chuẩn (benchmark datasets) để đánh giá mô hình?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ĐÁP:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Vui lòng truy cập &lt;a href=&quot;http://moleculenet.ai/&quot;&gt;MoleculeNet&lt;/a&gt;. Website này cung cấp cho bạn các tập dữ liệu chuẩn đã được đánh giá bới một số các mô hình ML phổ biến.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;3-tài-liệu-nên-đọc&quot;&gt;3. Tài liệu nên đọc&lt;/h3&gt;
+&lt;p&gt;Đây là một số tài liệu tham khảo mà bạn nên đọc.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;1. Tài liệu tổng quan (Review)&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a. &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S1359644617304695&quot;&gt;Machine learning in chemoinformatics and drug discovery&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;b. &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S135964461930282X&quot;&gt;Deep learning in drug discovery: opportunities, challenges and future prospects. Drug discovery today&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;c. &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S1359644617303598&quot;&gt;The rise of deep learning in drug discovery. Drug discovery today, 23(6), 1241-1250&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;2. Sử dụng Fingerprint để xây dựng mô hình&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a. &lt;a href=&quot;https://academic.oup.com/toxsci/article/165/1/100/5000032&quot;&gt;Predicting drug-induced liver injury using ensemble learning methods and molecular fingerprints. Toxicological Sciences, 165(1), 100-107&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;b. &lt;a href=&quot;https://pubs.rsc.org/en/content/articlehtml/2016/ra/c6ra02772e&quot;&gt;QSAR classification model for identifying plant based naturally occurring anti-cancerous inhibitors. RSC Advances, 6(55), 49395-49400&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;3. Sử dụng dụng Molecular Descriptor để xây dựng mô hình&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a. &lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S0278691515000332&quot;&gt;Developing a QSAR model for hepatotoxicity screening of the active compounds in traditional Chinese medicines. Food and Chemical Toxicology, 78, 71-77&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;4. Sử dụng Molecular Graph để xây dựng mô hình&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;a. &lt;a href=&quot;https://arxiv.org/abs/1901.00596&quot;&gt;A comprehensive survey on graph neural networks. arXiv preprint arXiv:1901.00596&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;b. &lt;a href=&quot;https://papers.nips.cc/paper/5954-convolutional-networks-on-graphs-for-learning-molecular-fingerprints&quot;&gt;Convolutional networks on graphs for learning molecular fingerprints. In Advances in neural information processing systems (pp. 2224-2232)&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;c. &lt;a href=&quot;https://link.springer.com/article/10.1007/s10822-016-9938-8&quot;&gt;Molecular graph convolutions: moving beyond fingerprints. Journal of computer-aided molecular design, 30(8), 595-608&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&quot;tác-giả-nvth-nvthoanggmailcom&quot;&gt;Tác giả: NVTH (nvthoang@gmail.com)&lt;/h6&gt;
 </description>
-        <pubDate>Tue, 19 Mar 2019 18:34:10 +0700</pubDate>
-        <link>http://localhost:4000/2019/03/19/bai-1.html</link>
-        <guid isPermaLink="true">http://localhost:4000/2019/03/19/bai-1.html</guid>
+        <pubDate>Wed, 08 Jan 2020 14:15:00 +1000</pubDate>
+        <link>http://localhost:4000/blog/2020/01/08/bai-4.html</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2020/01/08/bai-4.html</guid>
         
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P3)</title>
+        <description>&lt;h2 id=&quot;kỳ-3-hướng-dẫn-mã-hoá-dữ-liệu-sinh-học&quot;&gt;KỲ 3: HƯỚNG DẪN MÃ HOÁ DỮ LIỆU SINH HỌC&lt;/h2&gt;
+&lt;h3 id=&quot;lưu-ý&quot;&gt;Lưu ý&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Nếu bạn chưa biết những khái niệm căn bản liên quan đến sinh học, vui lòng xem Phần 1 trước.&lt;/li&gt;
+  &lt;li&gt;Nếu bạn đã hiểu những khái niệm căn bản, vui lòng chuyển qua Phần 2.&lt;/li&gt;
+  &lt;li&gt;Bạn nên đọc các tài liệu khoa học ở Phần 3 để có cái nhìn tổng quan hơn.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;1-khái-niệm-căn-bản&quot;&gt;1. Khái Niệm Căn Bản&lt;/h3&gt;
+&lt;ul&gt;
+  &lt;li&gt;Một chuỗi &lt;a href=&quot;https://en.wikipedia.org/wiki/DNA&quot;&gt;DNA&lt;/a&gt; luôn được mã hoá bằng 4 nucleic acids: A, T, G, C&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ&lt;/strong&gt;: AATGGCTAGCCAT…&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Một chuỗi &lt;a href=&quot;https://en.wikipedia.org/wiki/RNA&quot;&gt;RNA&lt;/a&gt; luôn được mã hoá bằng 4 nucleic acids: U, A, G, C&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ&lt;/strong&gt;: AAUGGCUAGCCAU…&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Một chuỗi &lt;a href=&quot;https://en.wikipedia.org/wiki/Peptide&quot;&gt;peptide&lt;/a&gt; thường được mã hoá bằng 20 alpha-amino acids (được viết tắt là  A, R, N, …)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ&lt;/strong&gt;: AAMVKELRESTGAGMMDCKNALSETNGDFDKAVQLLREKGLG…&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Các chuỗi này (RNA, DNA, Peptide) thường được lưu ở định dạng FASTA. Một tập tin FASTA có thể chứa một hay vô số các chuỗi.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ&lt;/strong&gt;:&lt;/p&gt;
+
+&lt;p&gt;Seq1&lt;/p&gt;
+
+&lt;p&gt;AATGGCTAGCCATAATGGCTAATGGCTAGCCATAGCCAT&lt;/p&gt;
+
+&lt;p&gt;Seq2&lt;/p&gt;
+
+&lt;p&gt;AATCCATAATGCTAGAGCGCTAATGGCTAGCCATGGCAT&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;
+    &lt;p&gt;Để trở thành dữ liệu đầu vào cho mô hình, các chuỗi này phải được chuyển đổi về dạng SỐ (Numeric) như Ma trận/Vector One-Hot, Ma Trận Vị Trí (Position-specific scoring matrices - PSSM), hoặc các dạng tính toán khác phức tạp hơn.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;PSSM là một ma trận với các giá trị được tính toán dựa vào vị trí của các amino acid trong chuỗi peptide. Bên cạnh PSSM, một số các đặc tính trích xuất từ ma trận này (PSSM-based feature) dưới dạng vector cũng có thể được sử dụng làm dữ liệu đầu vào.  &lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;2-những-câu-hỏi-thường-gặp&quot;&gt;2. Những Câu Hỏi Thường Gặp&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;HỎI: Làm sao để chuyển đổi một chuỗi định dạng FASTA thành một ma trận/vector số?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ĐÁP:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bạn có thể sử dụng &lt;a href=&quot;https://academic.oup.com/bib/advance-article/doi/10.1093/bib/bbz041/5475015&quot;&gt;iLearn&lt;/a&gt; 
+(&lt;a href=&quot;https://github.com/Superzchen/iLearn&quot;&gt;Github&lt;/a&gt;)&lt;/li&gt;
+  &lt;li&gt;Bạn có thể sử dụng &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/34/14/2499/4924718&quot;&gt;iFeature&lt;/a&gt; 
+(&lt;a href=&quot;https://github.com/Superzchen/iFeature&quot;&gt;Github&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;HỎI: Làm sao để chuyển đổi một chuỗi định dạng FASTA thành định dạng PSSM?&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;ĐÁP:&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;Bạn có thể sử dụng &lt;a href=&quot;http://possum.erc.monash.edu/&quot;&gt;POSSUM&lt;/a&gt; – một công cụ online hoặc có thể tải gói công về chạy offline.&lt;/li&gt;
+  &lt;li&gt;Bạn có thể sử dụng &lt;a href=&quot;https://academic.oup.com/bioinformatics/article/34/14/2499/4924718&quot;&gt;iFeature&lt;/a&gt; – một công cụ online hoặc có thể tải gói công về chạy offline&lt;/li&gt;
+  &lt;li&gt;Bạn có thể sử dụng NCBI-BLAST&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Bạn làm theo các bước dưới đây:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bước 1&lt;/strong&gt;: Tải và cài đặt &lt;a href=&quot;ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/LATEST/&quot;&gt;NCBI-BLAST&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bước 2&lt;/strong&gt;: Tải &lt;a href=&quot;ftp://ftp.ncbi.nlm.nih.gov/blast/db/FASTA/nr.gz&quot;&gt;NR database&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Sau khi tải xong, vào thư mục bin trong BLAST và chạy các dòng lệnh như bước 3&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bước 3&lt;/strong&gt;: Xây dựng CSDL:&lt;/p&gt;
+
+&lt;p&gt;formatdb.exe -i &lt;NR Database=&quot;&quot; file=&quot;&quot;&gt; -o T&lt;/NR&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Bước 4&lt;/strong&gt;: Tạo PSSM bằng cách chạy dòng lệnh&lt;/p&gt;
+
+&lt;p&gt;psiblast.exe -num_iterations 3 -db &lt;NR Database=&quot;&quot; file=&quot;&quot;&gt; -in_msa &lt;Fasta file=&quot;&quot;&gt; -out_ascii_pssm &lt;PSSM Output=&quot;&quot; file=&quot;&quot;&gt;&lt;/PSSM&gt;&lt;/Fasta&gt;&lt;/NR&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;3-tài-liệu-nên-đọc&quot;&gt;3. Tài liệu nên đọc&lt;/h3&gt;
+
+&lt;p&gt;Đây là một số tài liệu tham khảo mà bạn nên đọc.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://academic.oup.com/bioinformatics/article/34/1/33/4158035&quot;&gt;iPromoter-2L: a two-layer predictor for identifying promoters and their types by multi-window-based PseKNC. Bioinformatics, 34(1), 33-40&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://www.sciencedirect.com/science/article/pii/S216225311930071X&quot;&gt;iPseU-CNN: Identifying RNA Pseudouridine Sites Using Convolutional Neural Networks. Molecular Therapy-Nucleic Acids, 16, 463-470&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;&lt;a href=&quot;https://onlinelibrary.wiley.com/doi/full/10.1002/prot.21677&quot;&gt;Prediction of RNA binding sites in a protein using SVM and PSSM profile. Proteins: Structure, Function, and Bioinformatics, 71(1), 189-194&lt;/a&gt;&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h6 id=&quot;tác-giả-nvth-nvthoanggmailcom&quot;&gt;Tác giả: NVTH (nvthoang@gmail.com)&lt;/h6&gt;
+</description>
+        <pubDate>Wed, 08 Jan 2020 14:15:00 +1000</pubDate>
+        <link>http://localhost:4000/blog/2020/01/08/bai-3.html</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2020/01/08/bai-3.html</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P2)</title>
+        <description>&lt;h2 id=&quot;kỳ-2-xử-lý-dữ-liệu-đầu-vào-cho-mô-hình&quot;&gt;KỲ 2: XỬ LÝ DỮ LIỆU ĐẦU VÀO CHO MÔ HÌNH&lt;/h2&gt;
+&lt;h3 id=&quot;1-khái-niệm-căn-bản&quot;&gt;1. Khái niệm căn bản&lt;/h3&gt;
+&lt;p&gt;Như các bạn đã biết, để huấn luyện một mô hình, chúng ta cần ít nhất là 3 tập (dataset), bao gồm:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Tập Huấn Luyện (Training Set): Dùng để huấn luyện mô hình&lt;/li&gt;
+  &lt;li&gt;Tập Giám Sát (Validation Set): Dùng để theo dõi quá trình huấn luyện để lựa chọn điểm dừng.&lt;/li&gt;
+  &lt;li&gt;Tập Kiểm Thảo (Test): Dùng để đánh giá kết quả mô hình.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Vậy nếu chức năng của 3 tập rõ ràng như vậy, chúng ta có gì để sai? Trong thực tế, việc phân chia tập Train, Validation, và Test không phải là việc đơn giản vì&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Test Set phải được để riêng và không được tác động đến quá trình hình luyện.&lt;/li&gt;
+  &lt;li&gt;Validation Set phải khái quát hoá được đặc tính của Test Set&lt;/li&gt;
+  &lt;li&gt;Training Set không được chứa dữ liệu trùng với hai tập trên&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Nếu chúng ta có đủ dữ liệu (data) để chia sẵn thành 3 tập, điều này thật tuyệt vời. Tuy nhiên, ở một số bài toán, dữ liệu của chúng ta không đủ nhiều để có thể chia thành 3 tập rạch ròi nhưng quá trình giám sát là điều không thể loại bỏ để đảm bảo mô hình không bị quá khớp (overfiting). Đó cũng là lý do mà cross-validation ra đời. Để hiểu một cách đơn giản, cross-validation là giải pháp tình huống cho việc bạn không có Validation Set độc lập. Validation Set lúc này sẽ là một phần của Development Set (mình tự quy ước khi nào sử dụng thuật ngữ cross-validation, thì sẽ thay &lt;em&gt;Training Set&lt;/em&gt; thành &lt;em&gt;Development Set&lt;/em&gt; để tránh nhầm lẫn)&lt;/p&gt;
+
+&lt;h3 id=&quot;2-các-lỗi-thường-gặp&quot;&gt;2. Các lỗi thường gặp&lt;/h3&gt;
+&lt;h4 id=&quot;21-data-của-các-tập-bị-trùng-nhau&quot;&gt;2.1. Data của các tập bị trùng nhau&lt;/h4&gt;
+&lt;p&gt;Đây thì đích thị là vấn đề nghiêm trọng rồi, nhưng nó cũng là vấn đề có thể giải quyết một cách đơn giản nhất bằng cách loại bỏ các mẫu trùng.&lt;/p&gt;
+
+&lt;h4 id=&quot;22-can-thiệp-sai&quot;&gt;2.2. Can thiệp sai&lt;/h4&gt;
+&lt;p&gt;Đối với dữ liệu có tỉ lệ phân chia các lớp (class) bị lệch (imbalance), hoặc dữ liệu chưa chuẩn hoá (unstandardized), hoặc dữ liệu thiếu (unimputed), khi chúng ta quyết định can thiệp, các bạn phải nhớ Test Set không được quyền can thiệp vào bất cứ giai đoạn nào của quá trình huấn luyện, kể cả việc xử lý dữ liệu đầu vào.&lt;/p&gt;
+
+&lt;h5 id=&quot;lỗi-sai-thường-gặp&quot;&gt;Lỗi sai thường gặp:&lt;/h5&gt;
+&lt;ol&gt;
+  &lt;li&gt;Trộn Train và Test vào chung rồi tiến hành chuẩn hoá về scale 0-1. Không biết do vô tình hay cố ý mà hiện nay có rất nhiều bài được đăng trên các tập chí uy tín làm vậy. Dĩ nhiên là họ không ngốc, nhưng việc làm này rõ ràng là có ý đồ năng cao chất lượng, kết quả mô hình.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Lý do&lt;/strong&gt;: Khi bạn trộn Train và Test chung với nhau, bạn sẽ có 1 độ biến thiên dữ liệu mang đặc điểm &lt;strong&gt;CHUNG&lt;/strong&gt; giữa cả Training Set và Test Set. Nếu như vậy, Test Set đã can thiệp vào quá chính chuẩn hoá Training Set.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Trộn Train và Val vào chung rồi tiến hành chuẩn hoá: Vấn đề này về bản cũng không khác gì vấn đề khi trộn Train và Test, nhưng nghiêm trọng hơn rất nhiều vì nó quyết định điểm dừng của quá trình huấn luyện mô hình. Nếu bạn có Training Set và Validation Set độc lập thì việc này không phải là vấn đề nhưng nếu bạn tiến hành cross-validation, thì chúc mừng bạn, bạn có thể vô tình quên mất việc tập Validation Set đã được xử lý cùng tập Training Set (Training Set và Validation Set đều được tách ra từ Development Set).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Khi sử dụng K-fold cross-validation (ví dụ: k=5), ta có lần lượt 4 fold được sử dụng làm Training Set  và 1 fold còn lại được sử dụng làm Validation Set. Quá trình này lặp lại 5 lần với lần lượt các fold còn lại, được sử dụng như Validation Set trong suốt quá trình. Tuy nhiên, vì nhiều người thường tiến hành can thiệp để chuẩn hoá, cân bằng, hay điền khuyết dữ liệu thiếu trong Development Set mà quên mất việc Development Set sau đó sẽ được dùng để làm k-fold cross-validation. Điều này dẫn đến overfitting nặng.&lt;/p&gt;
+
+&lt;h3 id=&quot;3-các-lưu-ý-để-tránh-các-lỗi-nêu-trên&quot;&gt;3. Các lưu ý để tránh các lỗi nêu trên:&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Nếu bạn có Validation Set riêng, nên lưu ý việc Validation Set cũng phải được đối xử như Test Set. Mọi sự can thiệp vào dữ liệu, chỉ được tác động lên Training Set. Sau đó, bạn sử dụng các hệ số chuẩn hoá của Training Set để lần lượt áp dụng lên cho Validation Set và Test Set (scaling factor/standardized factor).&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Nếu bạn chỉ có một Development Set duy nhất, bạn nên chia thành k fold trước. Sau đó ứng với từng fold của Validation Set, bạn để riêng ra không can thiệp, và chỉ can thiệp vào 4 fold của Training Set. Sau đó, bạn sử dụng hệ số chuẩn hoá tính toán từ 4 fold của Training Set để áp dụng lên fold ứng với Validation Set. Bạn làm việc này tổng công là k lần, và kết quả của k-fold cross-validation của bạn sẽ kết quả trung bình của một chỉ số nào đó(AUC, PR-AUC, accuracy, …) để lựa chọn làm điểm dừng. Sau khi bạn đã có tham số tối ưu, bạn có thể lấy trọn vẹn Development Set  để huân luyện mô hình. Bạn tiến hành xử lý Development Set và sau đó áp dụng hệ số chuẩn hoá lên Test Set.&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Hai vấn đề mình đề cập ở đây là hai vấn đề căn bản mà bạn phải tránh tuyệt đối khi huấn luyện mô hình. Ngoài ra, đối với các mô hình kết hợp (ensemble) và tối ưu tham số cho mô hình này có một chút điều chỉnh, mình xin hẹn dịp sau sẽ nói rõ hơn.&lt;/p&gt;
+
+&lt;h6 id=&quot;tác-giả-nvth-nvthoanggmailcom&quot;&gt;Tác giả: NVTH (nvthoang@gmail.com)&lt;/h6&gt;
+</description>
+        <pubDate>Wed, 08 Jan 2020 14:15:00 +1000</pubDate>
+        <link>http://localhost:4000/blog/2020/01/08/bai-2.html</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2020/01/08/bai-2.html</guid>
+        
+        
+        <category>blog</category>
+        
+      </item>
+    
+      <item>
+        <title>NGHIÊN CỨU VỀ Y – SINH – HOÁ ỨNG DỤNG HỌC MÁY (P1)</title>
+        <description>&lt;h2 id=&quot;kỳ-1-tổng-quan&quot;&gt;KỲ 1: TỔNG QUAN&lt;/h2&gt;
+&lt;p&gt;Để bắt đầu một nghiên cứu y - sinh - hoá ứng dụng học máy, các bạn có thể bắt đầu theo các bước sau:&lt;/p&gt;
+&lt;h3 id=&quot;bước-1-xác-định-bài-toán&quot;&gt;Bước 1: Xác định bài toán&lt;/h3&gt;
+&lt;p&gt;Cá nhân mình nghĩ, bước này là bước quan trọng nhất vì nó giúp người làm xác định mình đang hướng đến việc tìm lời giải cho câu hỏi nghiên cứu (research question) nào. Nếu người làm không xác định rõ câu hỏi nghiên cứu, sẽ dẫn đến nhiều hệ luỵ. Câu hỏi nghiên cứu có thể to hoặc nhỏ nhưng xác định sai trọng tâm, bài toán sẽ trở nên vô nghĩa.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Ví dụ&lt;/strong&gt;: 
+Đối với một nghiên cứu để tìm mục tiêu mới cho thuốc đã biết (Drug repurposing), nếu kết quả của bạn chỉ ra rằng một số thuốc trị ung thư trên thị trường, có khả năng tác động lên các protein liên quan đến tiểu đường loại II, giúp điều hoà đường huyết thì thực chất bài toán bạn giải quyết không có nhiều ý nghĩa vì thuốc trị ung thư rất đắt trong khi thuốc trị tiểu đường thì lại khá rẻ. Bài toán này sẽ trở nên vô cùng ý nghĩa nếu bạn tìm được một loại thuốc trị tiểu đường mà có cơ chế tác động lên tế bào ung thư. Đây sẽ là một kết quả có sức ảnh hưởng vì có thể nghiên cứu của bạn sẽ giúp được ngành y dược tiết kiệm được hàng tỉ Dollar.&lt;/p&gt;
+
+&lt;h3 id=&quot;bước-2-thu-thập-dữ-liệu&quot;&gt;Bước 2: Thu thập dữ liệu&lt;/h3&gt;
+&lt;p&gt;Sau khi xác định được bài toán, chúng ta tiến hành thu thập dữ liệu để làm thí nghiệm. Có 2 cách thu thập dữ liệu phổ biến:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Cách 1&lt;/strong&gt;: Thu thập từ dữ liệu các nghiên cứu khác.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Ưu điểm&lt;/strong&gt;: Dễ tìm, có sẵn&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Khuyến điểm&lt;/strong&gt;: Dữ liệu có thể không chính xác, trùng lặp, … và nếu bạn làm lại thì kết quả chưa chắc sẽ tốt hơn phương pháp hiện tại.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Cách 2&lt;/strong&gt;: Thu thập dữ liệu từ các Cơ sở dữ liệu (CSDL) khác.&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Ưu điểm&lt;/strong&gt;: Chủ động, kiểm soát được chất lượng dữ liệu&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Khuyết điểm&lt;/strong&gt;: Đôi khi CSDL không chứa đúng loại dữ liệu mình cần, nên ta phải lấy thông tin x của CSDL X sau đó ánh xạ đến thông tin y nằm ở CSDL Y. Vấn đề này sẽ được nói rõ hơn ở các bài sau.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bước-3-đánh-giá-cấu-trúc-dữ-liệu&quot;&gt;Bước 3: Đánh giá cấu trúc dữ liệu&lt;/h3&gt;
+&lt;p&gt;Trước khi tiến hành xử lý dữ liệu thô, bạn nên dành thời gian để đánh giá cấu trúc dữ liệu, cụ thể là bạn nên xem xét một số đặc điểm sau:&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Phân bố số lượng mẫu giữa các lớp (class). Nếu phân bố dữ liệu không đồng đều (imbalance class), cần cân nhắc đến việc làm cân bằng các lớp bằng các kỹ thuật xử lý dữ liệu.&lt;/li&gt;
+  &lt;li&gt;Kích thước khối dữ liệu (lớn hay nhỏ). Đây là yếu tố quyết định việc lựa chọn mô hình/thuật toán nào phù hợp.&lt;/li&gt;
+  &lt;li&gt;Nếu dữ liệu không phải ở dạng số (Numeric) (vd: chuỗi DNA, Protein, SMILEs) thì phải lựa chọn phương thức chuyển đổi nào để chuyển về dạng số (Ví dụ: One-hot vector, ma trận, ..)&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;bươc-4-lựa-chọn-mô-hình&quot;&gt;Bươc 4: Lựa chọn mô hình:&lt;/h3&gt;
+&lt;p&gt;Sau khi đã đánh giá sơ lược cấu trúc và đặc điểm dữ liệu, bạn tiến hành lựa chọn mô hình phù hợp với dữ liệu của mình.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Với dữ liệu nhỏ, tầm vài nghìn đổ lại, bạn nên cân nhắc các thuật toán sơ cấp như SVM, KNN, … Hạn chế việc áp dụng nhiều mô hình, kiến trúc phức tạp để huấn luyện mô hình vì sẽ giống như kiểu dùng dao mổ bò để cắt tiết gà vậy.&lt;/li&gt;
+  &lt;li&gt;Lựa chọn các tham số để tối ưu. Mỗi một một mô hình, sẽ có một số tham số cần tối ưu để kết quả tốt hơn. Tuy nhiên, các bạn chỉ nên tối ưu những tham số căn bản, và đừng cố gắng tối ưu hết tất cả các tham số, dễ dẫn đến hiện tượng quá khớp (overfitting).&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;bước-5-xây-dựng-và-đánh-giá-mô-hình&quot;&gt;Bước 5: Xây dựng và đánh giá mô hình.&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;Với dữ liệu nhỏ tầm vài nghìn, một mô hình căn bản sẽ được huấn luyện trong vòng 15-30 phút (đã tối ưu tham số), tuỳ cấu hình máy.&lt;/li&gt;
+  &lt;li&gt;Sau đó, bạn tiến hành đánh giá mô hình dựa vào các chỉ số (metrics).&lt;/li&gt;
+  &lt;li&gt;Báo cáo kết quả mô hình.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h3 id=&quot;bước-6-chuẩn-bị-các-thông-tin-cần-thiết-cho-một-báo-cáobài-báo&quot;&gt;Bước 6: Chuẩn bị các thông tin cần thiết cho một báo cáo/bài báo&lt;/h3&gt;
+&lt;ol&gt;
+  &lt;li&gt;
+    &lt;p&gt;Xác định sẽ có bao nhiêu table, figure. Trung bình, một bài báo không nên có nhiều hơn 4 figures và 4 tables. Con số này có thể điều chỉnh qua lại, tuy nhiên, 8 graphics là tối đa. Lý do: 1 graphics, sẽ được các journal tính tương đương với 400-600 words, nên nếu bạn có nhiều graphics quá, thì đến lúc bạn viết bài, cũng sẽ bị bỏ, chưa kể còn làm rối người đọc.&lt;/p&gt;
+  &lt;/li&gt;
+  &lt;li&gt;
+    &lt;p&gt;Các thông tin mình thường chuẩn bị cho bài báo của mình thường bao gồm&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Thông tin về data (số sample của tập train/test, nguồn sample)&lt;/li&gt;
+  &lt;li&gt;Thông tin về loại feature sử dụng&lt;/li&gt;
+  &lt;li&gt;Thông tin kết quả mô hình&lt;/li&gt;
+  &lt;li&gt;Thông tin về kết quả mô hình khi so sánh với các nghiên cứu có liên quan (nếu có)&lt;/li&gt;
+  &lt;li&gt;Hình ảnh tóm tắt quá trình những bước cơ bản mình làm&lt;/li&gt;
+  &lt;li&gt;Hình ảnh tóm tắt kết quả mô hình AUC/PR-AUC,…&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&quot;bước-7-viết-báo-cáo-thôi&quot;&gt;Bước 7: Viết báo cáo thôi&lt;/h3&gt;
+&lt;p&gt;Đây là thứ tự viết các phần trong báo cáo mà mình cảm thấy hiệu quả.&lt;/p&gt;
+&lt;ol&gt;
+  &lt;li&gt;Viết Methods&lt;/li&gt;
+  &lt;li&gt;Viết Results + Discussions&lt;/li&gt;
+  &lt;li&gt;Viết Conclusion&lt;/li&gt;
+  &lt;li&gt;Viết Introduction&lt;/li&gt;
+  &lt;li&gt;Viết Abstract&lt;/li&gt;
+  &lt;li&gt;Thêm thắt các thông tin khác&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h6 id=&quot;tác-giả-nvth-nvthoanggmailcom&quot;&gt;Tác giả: NVTH (nvthoang@gmail.com)&lt;/h6&gt;
+
+</description>
+        <pubDate>Wed, 08 Jan 2020 14:14:00 +1000</pubDate>
+        <link>http://localhost:4000/blog/2020/01/08/bai-1.html</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2020/01/08/bai-1.html</guid>
+        
+        
+        <category>blog</category>
         
       </item>
     
